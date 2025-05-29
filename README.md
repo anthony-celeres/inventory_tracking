@@ -1,4 +1,4 @@
-# 🛒 Celeres Store Inventory Tracker
+# 🛒 Store Inventory Tracker
 
 A simple WPF desktop application for managing store inventory, built with **C#**, **XAML**, and the **MVVM pattern**. This application visually highlights low-stock items using a color-coded system.
 
