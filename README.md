@@ -17,6 +17,7 @@ A simple WPF desktop application for managing store inventory, built with **C#**
 
 ## 📁 Project Structure
 
+```
 Solution: InventoryTracker
 ├── ClassDesign/
 │   ├── Inventory.cs                  # Handles product logic (add, update, delete)
@@ -27,7 +28,7 @@ Solution: InventoryTracker
 │   ├── Style.xaml                    # ResourceDictionary for UI styles and row colors
 │   └── QuantityToBrushConverter.cs   # Converts stock level to background brush
 └── InventoryTracker.sln              # Visual Studio solution file
-
+```
 ---
 
 ## 🖥️ How to Run
@@ -67,7 +68,7 @@ Solution: InventoryTracker
 ## 📃 License
 
 This project is licensed under the **MIT License**.
-
+```
 MIT License
 
 Copyright (c) \[2025]
@@ -89,7 +90,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
+```
 ---
 
 ## 🙌 Acknowledgments
