@@ -1,0 +1,7 @@
+D:\InventoryTracker\ClassDesign\bin\Debug\ClassDesign.exe.config
+D:\InventoryTracker\ClassDesign\bin\Debug\ClassDesign.exe
+D:\InventoryTracker\ClassDesign\bin\Debug\ClassDesign.pdb
+D:\InventoryTracker\ClassDesign\obj\Debug\ClassDesign.csproj.AssemblyReference.cache
+D:\InventoryTracker\ClassDesign\obj\Debug\ClassDesign.csproj.CoreCompileInputs.cache
+D:\InventoryTracker\ClassDesign\obj\Debug\ClassDesign.exe
+D:\InventoryTracker\ClassDesign\obj\Debug\ClassDesign.pdb
