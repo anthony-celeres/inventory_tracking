@@ -34,14 +34,17 @@ Solution: InventoryTracker
 ## 🖥️ How to Run
 
 1. Clone the repository:
-    git clone https://github.com/your-username/CeleresInventory.git
-    
+```
+   git clone git@github.com:anthony-celeres/inventory_tracking.git
+```    
 2. Open the solution file in Visual Studio:
-    InventoryTracker.sln
-
+```
+   InventoryTracker.sln
+```
 3. In Solution Explorer:
+```
     - Right-click `UIDesign` and choose **Set as Startup Project**
-
+```
 4. Press `F5` or click **Start** to run the application
 
 ---
