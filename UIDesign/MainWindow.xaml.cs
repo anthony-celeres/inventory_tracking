@@ -25,6 +25,8 @@ namespace UIDesign
     public partial class MainWindow : Window
     {
         public ObservableCollection<Product> Products => Inventory.Products;
+        public ObservableCollection<Product> SearchResults { get; set; } = new ObservableCollection<Product>();
+
 
         public static readonly DependencyProperty IsUpdatePanelOpenProperty =
         DependencyProperty.Register("IsUpdatePanelOpen", typeof(bool), typeof(MainWindow), new PropertyMetadata(false));
@@ -99,26 +101,24 @@ namespace UIDesign
 
         private void ProductGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            var currentSelectedItem = ProductGrid.SelectedItem;
+            DataGrid grid = sender as DataGrid;
+            var currentSelectedItem = grid.SelectedItem;
 
             if (currentSelectedItem == previouslySelectedItem && currentSelectedItem != null)
             {
-                // Same item clicked again: collapse the panel and deselect
-                
                 ViewProductGrid.Visibility = Visibility.Collapsed;
-                ProductGrid.SelectedItem = null;
+                grid.SelectedItem = null;
                 previouslySelectedItem = null;
             }
-            else if (currentSelectedItem is Product)
+            else if (currentSelectedItem is Product p)
             {
-                // New item selected: show the panel
                 ViewProductGrid.Visibility = Visibility.Visible;
                 previouslySelectedItem = currentSelectedItem;
-                Product p = currentSelectedItem as Product;
                 ViewProductDescription(p);
                 ViewProductStatistics(p);
             }
         }
+
 
         private void ViewProductDescription(Product p)
         {
@@ -276,6 +276,8 @@ namespace UIDesign
                 return;
             }
 
+            SearchResults.Clear(); // Clear previous search results
+
             IEnumerable<Product> result = Inventory.Products;
 
             switch (selectedCriteria)
@@ -291,7 +293,7 @@ namespace UIDesign
                         result = result.Where(p => p.Quantity == qty);
                     else
                     {
-                        MessageBox.Show("Enter a valid number for Stock.");
+                        MessageBox.Show("Enter a valid number for Stock.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
                         return;
                     }
                     break;
@@ -300,16 +302,33 @@ namespace UIDesign
                         result = result.Where(p => p.Price == price);
                     else
                     {
-                        MessageBox.Show("Enter a valid number for Price.");
+                        MessageBox.Show("Enter a valid number for Price.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
                         return;
                     }
                     break;
             }
 
-            SearchResultGrid.ItemsSource = result.ToList();
-            SearchResultGrid.Visibility = Visibility.Visible;
+            foreach (var item in result)
+            {
+                SearchResults.Add(item);
+            }
+
+            bool found = SearchResults.Any();
+
+            SearchResultGrid.Visibility = found ? Visibility.Visible : Visibility.Collapsed;
+            SearchResultsHeader.Visibility = found ? Visibility.Visible : Visibility.Collapsed;
+            EscapeButton.Visibility = Visibility.Visible;
+            NoResultsText.Visibility = found ? Visibility.Collapsed : Visibility.Visible;
         }
 
+        private void EscapeButton_Click(object sender, RoutedEventArgs e)
+        {
+            SearchResults.Clear();
+            SearchResultGrid.Visibility = Visibility.Collapsed;
+            SearchResultsHeader.Visibility = Visibility.Collapsed;
+            NoResultsText.Visibility = Visibility.Collapsed;
+            EscapeButton.Visibility = Visibility.Collapsed;
+        }
 
     }
 }

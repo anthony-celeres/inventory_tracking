@@ -12,6 +12,8 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="35"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -140,6 +142,35 @@
             <Button x:Name="AddProductExpander" Content="Add New" Grid.Column="4" Click="OpenAddProductWindow_Click" Margin="0,0,5,0" Style="{StaticResource RoundedAddButton}"/>
         </Grid>
 
+        <Button x:Name="EscapeButton"
+            Content="❌"
+            HorizontalAlignment="Right"
+            Width="20"
+            Height="20"
+            Grid.Row="3"
+            Margin="0,5,5,0"
+            Style="{StaticResource RoundedEscapeButton}"
+            Visibility="Collapsed"
+            Click="EscapeButton_Click"/>
+
+        <TextBlock x:Name="SearchResultsHeader"
+           Text="Search Results"
+           FontWeight="Bold"
+           FontSize="14"
+           Foreground="White"
+           Margin="5,5,487,5"
+           Visibility="Collapsed"
+           Grid.Row="3"/>
+
+        <TextBlock x:Name="NoResultsText"
+           Text="No results found."
+           FontSize="13"
+           Foreground="Gray"
+           HorizontalAlignment="Center"
+           Margin="5"
+           Visibility="Collapsed"
+           Grid.Row="3"/>
+
         <DataGrid x:Name="SearchResultGrid"
           AutoGenerateColumns="False"
           Background="#1d1d1d"
@@ -148,9 +179,10 @@
           CanUserResizeRows="False"
           IsReadOnly="True"
           Margin="5"
-          Grid.Row="3"  
+          Grid.Row="4"  
           Grid.ColumnSpan="1"
           Visibility="Collapsed"
+          ItemsSource="{Binding SearchResults}"
           RowStyle="{StaticResource RowStyle}"
           MouseLeftButtonUp="ProductGrid_MouseLeftButtonUp">
             <!-- Initially hidden -->
@@ -164,6 +196,14 @@
             </DataGrid.Columns>
         </DataGrid>
 
+        <TextBlock x:Name="InventoryHeader"
+            Text="Inventory"
+            FontWeight="Bold"
+            FontSize="14"
+            Foreground="White"
+            Margin="5"
+            Visibility="Visible"
+            Grid.Row="5"/>
 
         <DataGrid x:Name="ProductGrid"
                   AutoGenerateColumns="False"
@@ -175,7 +215,7 @@
                   CanUserResizeRows="False"
                   IsReadOnly="True"
                   Margin="5"
-                  Grid.Row="4"
+                  Grid.Row="6"
                   Grid.ColumnSpan="1"
                   MouseLeftButtonUp="ProductGrid_MouseLeftButtonUp">
             <DataGrid.Columns>
