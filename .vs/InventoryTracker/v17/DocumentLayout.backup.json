@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "D:\\InventoryTracker\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|d:\\inventorytracker\\uidesign\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|solutionrelative:uidesign\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|D:\\InventoryTracker\\uidesign\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|solutionrelative:uidesign\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|d:\\inventorytracker\\uidesign\\addproductwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|d:\\inventorytracker\\uidesign\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|solutionrelative:uidesign\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|D:\\InventoryTracker\\uidesign\\addproductwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|solutionrelative:uidesign\\addproductwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
@@ -31,7 +31,7 @@
       "RelativeMoniker": "D:0:0:{C680D37E-AB2C-490A-B4F3-0CD591432C12}|ClassDesign\\ClassDesign.csproj|solutionrelative:classdesign\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|d:\\inventorytracker\\uidesign\\addproductwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|D:\\InventoryTracker\\uidesign\\addproductwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|solutionrelative:uidesign\\addproductwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -39,14 +39,14 @@
       "RelativeMoniker": "D:0:0:{C680D37E-AB2C-490A-B4F3-0CD591432C12}|ClassDesign\\ClassDesign.csproj|solutionrelative:classdesign\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C680D37E-AB2C-490A-B4F3-0CD591432C12}|ClassDesign\\ClassDesign.csproj|d:\\inventorytracker\\classdesign\\invalidproductexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C680D37E-AB2C-490A-B4F3-0CD591432C12}|ClassDesign\\ClassDesign.csproj|D:\\InventoryTracker\\classdesign\\invalidproductexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C680D37E-AB2C-490A-B4F3-0CD591432C12}|ClassDesign\\ClassDesign.csproj|solutionrelative:classdesign\\invalidproductexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|ClassDesign||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|d:\\inventorytracker\\uidesign\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|D:\\InventoryTracker\\uidesign\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|solutionrelative:uidesign\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -59,9 +59,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|D:\\InventoryTracker\\uidesign\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|solutionrelative:uidesign\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C680D37E-AB2C-490A-B4F3-0CD591432C12}|ClassDesign\\ClassDesign.csproj|d:\\inventorytracker\\classdesign\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
     }
   ],
   "DocumentGroupContainers": [
@@ -71,7 +68,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -83,7 +80,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\MainWindow.xaml",
               "RelativeDocumentMoniker": "UIDesign\\MainWindow.xaml",
@@ -102,18 +99,17 @@
               "ToolTip": "D:\\InventoryTracker\\UIDesign\\AddProductWindow.xaml",
               "RelativeToolTip": "UIDesign\\AddProductWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-12T16:40:44.893Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-12T16:40:44.893Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "UIDesign\\MainWindow.xaml.cs",
               "ToolTip": "D:\\InventoryTracker\\UIDesign\\MainWindow.xaml.cs",
               "RelativeToolTip": "UIDesign\\MainWindow.xaml.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAuwGcAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAiwEYAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-29T00:24:13.941Z",
               "EditorCaption": ""
@@ -128,8 +124,7 @@
               "RelativeToolTip": "ClassDesign\\Product.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAgwCkAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T00:19:12.728Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T00:19:12.728Z"
             },
             {
               "$type": "Document",
@@ -141,8 +136,7 @@
               "RelativeToolTip": "ClassDesign\\Inventory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T00:18:06.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T00:18:06.663Z"
             },
             {
               "$type": "Document",
@@ -166,8 +160,7 @@
               "RelativeToolTip": "UIDesign\\QuantityToBrushConverter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T03:17:33.804Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T03:17:33.804Z"
             },
             {
               "$type": "Document",
@@ -179,8 +172,7 @@
               "RelativeToolTip": "UIDesign\\AddProductWindow.xaml.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAwwEcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T16:41:34.717Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-12T16:41:34.717Z"
             },
             {
               "$type": "Document",
@@ -192,8 +184,7 @@
               "RelativeToolTip": "ClassDesign\\InvalidProductException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T17:21:10.977Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-12T17:21:10.977Z"
             },
             {
               "$type": "Document",
@@ -205,8 +196,7 @@
               "RelativeToolTip": "ClassDesign\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T00:14:28.289Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T00:14:28.289Z"
             },
             {
               "$type": "Document",
@@ -217,8 +207,7 @@
               "ToolTip": "D:\\InventoryTracker\\ClassDesign\\ClassDesign.csproj",
               "RelativeToolTip": "ClassDesign\\ClassDesign.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-06-12T17:20:06.187Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-12T17:20:06.187Z"
             },
             {
               "$type": "Document",
@@ -241,8 +230,7 @@
               "RelativeToolTip": "UIDesign\\App.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T16:51:26.782Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-12T16:51:26.782Z"
             },
             {
               "$type": "Document",

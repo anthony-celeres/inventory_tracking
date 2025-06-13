@@ -55,38 +55,8 @@ namespace UIDesign
             }
         }
 
-        private void AddNewProduct_Click(object sender, RoutedEventArgs e)
-        {
-            AddNewProductPanel.Visibility = Visibility.Visible;
-            AddProductBorder.Visibility = Visibility.Visible;
-            if(ViewProductGrid.Visibility == Visibility.Collapsed)
-            {
-                ViewProductGrid.Visibility = Visibility.Visible;
-                ViewProductBorder.Visibility = Visibility.Collapsed;
-                ProductDescription.Visibility = Visibility.Collapsed;
-                ProductStatistics.Visibility = Visibility.Collapsed;
-                ProductModifierButtons.Visibility = Visibility.Collapsed;
-            }
-        }
-
-        private void CloseAddProductPanelButton_Click(object sender, RoutedEventArgs e)
-        {
-            AddNewProductPanel.Visibility = Visibility.Collapsed;
-            AddProductBorder.Visibility = Visibility.Collapsed;
-
-            if (ViewProductGrid.Visibility == Visibility.Visible &&
-                ViewProductBorder.Visibility == Visibility.Collapsed &&
-                ProductDescription.Visibility == Visibility.Collapsed &&
-                ProductStatistics.Visibility == Visibility.Collapsed &&
-                ProductModifierButtons.Visibility == Visibility.Collapsed)
-            {
-                ViewProductGrid.Visibility = Visibility.Collapsed;
-                ViewProductBorder.Visibility = Visibility.Visible;
-                ProductDescription.Visibility = Visibility.Visible;
-                ProductStatistics.Visibility = Visibility.Visible;
-                ProductModifierButtons.Visibility = Visibility.Visible;
-            }
-        }
+        
+        
 
         private void RemoveProduct_Click(object sender, RoutedEventArgs e)
         {
@@ -118,57 +88,14 @@ namespace UIDesign
             if (currentSelectedItem == previouslySelectedItem && currentSelectedItem != null)
             {
                 // Same item clicked again: collapse the panel and deselect
-                if (AddNewProductPanel.Visibility == Visibility.Visible &&
-                    ViewProductBorder.Visibility == Visibility.Collapsed &&
-                    ProductDescription.Visibility == Visibility.Collapsed &&
-                    ProductStatistics.Visibility == Visibility.Collapsed &&
-                    ProductModifierButtons.Visibility == Visibility.Collapsed)
-                {
-                    ViewProductGrid.Visibility = Visibility.Visible;
-                    ViewProductBorder.Visibility = Visibility.Collapsed;
-                    ProductDescription.Visibility = Visibility.Collapsed;
-                    ProductStatistics.Visibility = Visibility.Collapsed;
-                    ProductModifierButtons.Visibility = Visibility.Collapsed;
-                }
-                else if (ViewProductGrid.Visibility == Visibility.Visible &&
-                    AddNewProductPanel.Visibility == Visibility.Visible &&
-                    ViewProductBorder.Visibility == Visibility.Visible &&
-                    ProductDescription.Visibility == Visibility.Visible &&
-                    ProductStatistics.Visibility == Visibility.Visible &&
-                    ProductModifierButtons.Visibility == Visibility.Visible)
-                {
-                    ViewProductBorder.Visibility = Visibility.Collapsed;
-                    ProductDescription.Visibility = Visibility.Collapsed;
-                    ProductStatistics.Visibility = Visibility.Collapsed;
-                    ProductModifierButtons.Visibility = Visibility.Collapsed;
-                }
-                else if (ViewProductGrid.Visibility == Visibility.Visible &&
-                    AddNewProductPanel.Visibility == Visibility.Collapsed &&
-                    ViewProductBorder.Visibility == Visibility.Visible &&
-                    ProductDescription.Visibility == Visibility.Visible &&
-                    ProductStatistics.Visibility == Visibility.Visible &&
-                    ProductModifierButtons.Visibility == Visibility.Visible)
-                {
-                    ViewProductGrid.Visibility = Visibility.Collapsed;
-                }
+                
+                ViewProductGrid.Visibility = Visibility.Collapsed;
                 ProductGrid.SelectedItem = null;
                 previouslySelectedItem = null;
             }
             else if (currentSelectedItem is Product)
             {
                 // New item selected: show the panel
-                if(AddNewProductPanel.Visibility == Visibility.Visible &&
-                    ViewProductBorder.Visibility == Visibility.Collapsed &&
-                    ProductDescription.Visibility == Visibility.Collapsed &&
-                    ProductStatistics.Visibility == Visibility.Collapsed &&
-                    ProductModifierButtons.Visibility == Visibility.Collapsed)
-                {
-                    ViewProductBorder.Visibility = Visibility.Visible;
-                    ProductDescription.Visibility = Visibility.Visible;
-                    ProductStatistics.Visibility = Visibility.Visible;
-                    ProductModifierButtons.Visibility = Visibility.Visible;
-                }
-
                 ViewProductGrid.Visibility = Visibility.Visible;
                 previouslySelectedItem = currentSelectedItem;
                 Product p = currentSelectedItem as Product;

@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\InventoryTracker\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|d:\\inventorytracker\\uidesign\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|solutionrelative:uidesign\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|D:\\InventoryTracker\\uidesign\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|solutionrelative:uidesign\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|d:\\inventorytracker\\uidesign\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|solutionrelative:uidesign\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|D:\\InventoryTracker\\uidesign\\addproductwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -68,7 +68,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -80,14 +80,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\MainWindow.xaml",
               "RelativeDocumentMoniker": "UIDesign\\MainWindow.xaml",
               "ToolTip": "D:\\InventoryTracker\\UIDesign\\MainWindow.xaml",
               "RelativeToolTip": "UIDesign\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-29T00:24:14.675Z"
+              "WhenOpened": "2025-05-29T00:24:14.675Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -102,13 +103,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "UIDesign\\MainWindow.xaml.cs",
               "ToolTip": "D:\\InventoryTracker\\UIDesign\\MainWindow.xaml.cs",
               "RelativeToolTip": "UIDesign\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAqwFcAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAiwEYAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-29T00:24:13.941Z",
               "EditorCaption": ""
@@ -146,7 +147,8 @@
               "ToolTip": "D:\\InventoryTracker\\UIDesign\\Style.xaml",
               "RelativeToolTip": "UIDesign\\Style.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-29T00:34:39.492Z"
+              "WhenOpened": "2025-05-29T00:34:39.492Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -250,7 +252,8 @@
               "ToolTip": "D:\\InventoryTracker\\UIDesign\\App.xaml",
               "RelativeToolTip": "UIDesign\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-29T00:39:11.119Z"
+              "WhenOpened": "2025-05-29T00:39:11.119Z",
+              "EditorCaption": ""
             }
           ]
         }
