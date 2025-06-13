@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -251,11 +252,16 @@ namespace UIDesign
             if (selectedProduct != null)
             {
                 EditProductWindow editWindow = new EditProductWindow(selectedProduct);
-                editWindow.ShowDialog();
+                editWindow.Owner = this;
+                if (editWindow.ShowDialog() == true)
+                {
+                    // Access values if needed via properties or shared data
+                    MessageBox.Show("Product updated successfully!", "Edit Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
             else
             {
-                MessageBox.Show("Please select a product to edit.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Please select a product to edit.", "No Product Selected", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 

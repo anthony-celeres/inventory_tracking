@@ -15,7 +15,7 @@
             VerticalAlignment="Center">
             <TextBlock Text="{Binding Status}"
                    Foreground="#1d1d1d"
-                   HorizontalAlignment="Left"
+                   HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontWeight="SemiBold"/>
         </Border>
@@ -307,7 +307,7 @@
 
     <!-- DataGrid Row Style -->
     <Style TargetType="DataGridRow" x:Key="RowStyle">
-        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontSize" Value="12"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="#2b2b2b"/>
         <Setter Property="BorderBrush" Value="#3a3a3a"/>

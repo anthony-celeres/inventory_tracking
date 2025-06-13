@@ -151,6 +151,7 @@
           Grid.Row="3"  
           Grid.ColumnSpan="1"
           Visibility="Collapsed"
+          RowStyle="{StaticResource RowStyle}"
           MouseLeftButtonUp="ProductGrid_MouseLeftButtonUp">
             <!-- Initially hidden -->
             <DataGrid.Columns>
