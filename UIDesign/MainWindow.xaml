@@ -20,7 +20,7 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="ViewProductGrid" Grid.Row="1" Margin="0,10,0,10" Visibility="Visible">
+        <Grid x:Name="ViewProductGrid" Grid.Row="1" Margin="0,10,0,10" Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -31,7 +31,7 @@
             <TextBox x:Name="ProductDescription" Grid.Row="0" VerticalAlignment="Center" Grid.Column="0" Foreground="#BABABA" Margin="15,0,0,0" Height="85" Background="#1d1d1d" BorderThickness="0" Visibility="Visible" />
             <TextBox x:Name="ProductStatistics" Grid.Row="0" VerticalAlignment="Center" Grid.Column="1" Foreground="#BABABA" Margin="5,0,5,0" Height="85" Background="#1d1d1d" BorderThickness="0" Visibility="Visible"/>
 
-            <Grid x:Name="ProductModifierButtons" Grid.Column="2" VerticalAlignment="Center" Visibility="Visible">
+            <Grid x:Name="ProductModifierButtons" Grid.Column="2" VerticalAlignment="Center">
                 <StackPanel Margin="0,0,0,0">
                     <Button x:Name="UpdateProductStock"
                         Content="{Binding IsUpdatePanelOpen, Converter={StaticResource UpdateStockContentConverter}}"
@@ -50,7 +50,7 @@
                         Width="124"
                         Margin="0,5,0,5"
                         Style="{StaticResource RoundedNormalButton}"
-                        Click="RemoveProduct_Click" 
+                        Click="EditProductButton_Click" 
                         HorizontalAlignment="Center"/>
 
                     <Button x:Name="RemoveProduct"
@@ -65,7 +65,7 @@
                 </StackPanel>
             </Grid>
 
-            <Grid x:Name="UpdateStockPanel" Grid.Column="3" Visibility="Visible">
+            <Grid x:Name="UpdateStockPanel" Grid.Column="3" Visibility="Collapsed">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />

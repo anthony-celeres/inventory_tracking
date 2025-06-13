@@ -236,5 +236,21 @@ namespace UIDesign
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void EditProductButton_Click(object sender, RoutedEventArgs e)
+        {
+            Product selectedProduct = ProductGrid.SelectedItem as Product;
+
+            if (selectedProduct != null)
+            {
+                EditProductWindow editWindow = new EditProductWindow(selectedProduct);
+                editWindow.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a product to edit.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
     }
 }

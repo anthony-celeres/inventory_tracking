@@ -58,9 +58,16 @@
     <Compile Include="AddProductWindow.xaml.cs">
       <DependentUpon>AddProductWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditProductWindow.xaml.cs">
+      <DependentUpon>EditProductWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="QuantityToBrushConverter.cs" />
     <Compile Include="UpdateStockContentConverter.cs" />
     <Page Include="AddProductWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditProductWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -22,3 +22,5 @@ D:\InventoryTracker\UIDesign\obj\Debug\App.baml
 D:\InventoryTracker\UIDesign\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\InventoryTracker\UIDesign\obj\Debug\AddProductWindow.g.cs
 D:\InventoryTracker\UIDesign\obj\Debug\AddProductWindow.baml
+D:\InventoryTracker\UIDesign\obj\Debug\EditProductWindow.g.cs
+D:\InventoryTracker\UIDesign\obj\Debug\EditProductWindow.baml
