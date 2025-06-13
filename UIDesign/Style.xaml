@@ -6,11 +6,20 @@
     <local:UpdateStockContentConverter x:Key="UpdateStockContentConverter" />
 
     <!-- Style for only the Status column cell -->
-    <Style x:Key="StatusCellStyle" TargetType="TextBlock">
-        <Setter Property="Background" 
-                Value="{Binding Quantity, Converter={StaticResource QuantityToBrushConverter}}"/>
-        <Setter Property="Padding" Value="4"/>
-    </Style>
+    <DataTemplate x:Key="RoundedStatusCellTemplate">
+        <Border Background="{Binding Quantity, Converter={StaticResource QuantityToBrushConverter}}"
+            CornerRadius="6"
+            Padding="4"
+            Margin="2"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center">
+            <TextBlock Text="{Binding Status}"
+                   Foreground="#1d1d1d"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   FontWeight="SemiBold"/>
+        </Border>
+    </DataTemplate>
 
     <!-- Round Text Box Style -->
     <Style TargetType="TextBox" x:Key="RoundedTextBox">
@@ -296,5 +305,25 @@
         </Style.Triggers>
     </Style>
 
+    <!-- DataGrid Row Style -->
+    <Style TargetType="DataGridRow" x:Key="RowStyle">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="#2b2b2b"/>
+        <Setter Property="BorderBrush" Value="#3a3a3a"/>
+        <Setter Property="BorderThickness" Value="0,0,0,1"/>
+        <Setter Property="Padding" Value="4"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#444"/>
+            </Trigger>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="#007acc"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
 </ResourceDictionary>
