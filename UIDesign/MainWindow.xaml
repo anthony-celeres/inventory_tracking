@@ -5,127 +5,155 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIDesign"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="700" Width="800" Background="#1d1d1d">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="25"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="40" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Celeres Store Inventory"
-           Grid.Row="0" Grid.Column="0"
+        <Grid x:Name="ViewProductGrid" Grid.Row="1" Margin="0,10,0,10" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border x:Name="ViewProductBorder" BorderBrush="#BABABA" BorderThickness="0.5" Grid.Row="1" Margin="10,0,0,0" Grid.ColumnSpan="2" Height="100" CornerRadius="5" Visibility="Visible"/>
+            <TextBox x:Name="ProductDescription" Grid.Row="0" VerticalAlignment="Center" Grid.Column="0" Foreground="#BABABA" Margin="15,0,0,0" Height="85" Background="#1d1d1d" BorderThickness="0" Visibility="Visible" />
+            <TextBox x:Name="ProductStatistics" Grid.Row="0" VerticalAlignment="Center" Grid.Column="1" Foreground="#BABABA" Margin="5,0,5,0" Height="85" Background="#1d1d1d" BorderThickness="0" Visibility="Visible"/>
+
+            <Grid x:Name="ProductModifierButtons" Grid.Column="2" VerticalAlignment="Center" Visibility="Visible">
+                <StackPanel Margin="-25,0,0,0">
+                    <Button x:Name="UpdateProductStock"
+                        Content="Update Stock"
+                        Grid.Row="0"
+                        Height="25"
+                        Width="150"
+                        Margin="0,0,0,5"
+                        Background="LightGreen"
+                        Foreground="Black"
+                        Click="RemoveProduct_Click" 
+                        HorizontalAlignment="Center" />
+
+                    <Button x:Name="EditProductDescription"
+                        Content="Edit Description"
+                        Grid.Row="1"
+                        Height="25"
+                        Width="150"
+                        Margin="0,5,0,5"
+                        Background="LightGreen"
+                        Foreground="Black"
+                        Click="RemoveProduct_Click" 
+                        HorizontalAlignment="Center"/>
+
+                    <Button x:Name="RemoveProduct"
+                        Content="Remove Product"
+                        Grid.Row="2"
+                        Height="25"
+                        Width="150"
+                        Margin="0,5,0,0"
+                        Background="Tomato"
+                        Foreground="White"
+                        Click="RemoveProduct_Click" 
+                        HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+
+            <Border x:Name="AddProductBorder" BorderBrush="#BABABA" BorderThickness="0.5" Grid.Column="3" Margin="-25,0,10,0" CornerRadius="5" Visibility="Collapsed"/>
+
+            <StackPanel x:Name="AddNewProductPanel" Grid.Column="3" Visibility="Collapsed" Margin="-15,10,20,10">
+                <Button x:Name="CloseAddProductPanelButton"
+                        Content="❌"
+                        Height="20"
+                        Width="20"
+                        HorizontalAlignment="Right"
+                        Background="Tomato"
+                        Click="CloseAddProductPanelButton_Click"/>
+                <TextBlock Text="Product Name" Foreground="#BABABA"/>
+                <TextBox x:Name="NameBox" Height="25" VerticalContentAlignment="Center"/>
+
+                <TextBlock Text="Product ID" Foreground="#BABABA"/>
+                <TextBox x:Name="IDBox" Height="25" VerticalContentAlignment="Center" />
+
+                <TextBlock Text="Quantity" Foreground="#BABABA"/>
+                <TextBox x:Name="QuantityBox" Height="25" VerticalContentAlignment="Center"/>
+
+                <TextBlock Text="Price" Foreground="#BABABA"/>
+                <TextBox x:Name="PriceBox" Height="25" VerticalContentAlignment="Center"/>
+                <Button x:Name="AddButton"
+                        Content="Add"
+                        Margin="0,10,0,0"
+                        Height="25"
+                        Width="110"
+                        HorizontalAlignment="Left"
+                        Background="LightGreen"
+                        />
+            </StackPanel>
+        </Grid>
+        
+        <TextBlock Text="Store Inventory Tracker"
+           Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
            VerticalAlignment="Center"
            HorizontalAlignment="Center"
            FontFamily="Calibri"
            FontSize="24"
            FontWeight="Bold"
-           Foreground="DarkSlateBlue"/>
+           Foreground="#4681a8"/>
 
-        <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40" />
-                <RowDefinition Height="160" />
-                <RowDefinition Height="190" />
-            </Grid.RowDefinitions>
-            <TextBlock Text="Add New Product"
-                        Grid.Row="0" Grid.Column="0"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        FontFamily="Calibri"
-                        FontSize="18"
-                        FontWeight="Bold"
-            Foreground="DarkSlateBlue"/>
-            <StackPanel x:Name="ProductDescriptionPanel" Grid.Row="1" >
-                <TextBlock Text="Product Name" />
-                <TextBox x:Name="NameBox" Height="25"/>
-                <TextBlock Text="Product ID" />
-                <TextBox x:Name="IDBox" Height="25"/>
-                <TextBlock Text="Quantity" />
-                <TextBox x:Name="QuantityBox" Height="25"/>
-                <Button x:Name="AddButton" Content="Add" Margin="0,5,0,0" Height="25" Width="100" Background="LightGreen" Click="AddButton_Click"/>
-            </StackPanel>
+        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="150" />
+            </Grid.ColumnDefinitions>
 
-            <Grid x:Name="StockPanel" Grid.Row="2" Visibility="Collapsed">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <TextBlock Text="   Search by:"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#BABABA"/>
+            <ComboBox x:Name="SizeComboBox" Grid.Column="1" Margin="0,0,5,0">
+                <ComboBoxItem Content="ID"/>
+                <ComboBoxItem Content="Name"/>
+            </ComboBox>
+            <TextBox x:Name="SearchBox" Grid.Column="2" Margin="5,0,0,0"/>
+            <Button x:Name="SearchButton" Grid.Column="3" Content="Search" Margin="5,0,5,0"/>
 
-                <TextBlock Text="Product Stock Update"
-               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
-               Margin="0,30,0,10"
-               VerticalAlignment="Center"
-               HorizontalAlignment="Center"
-               FontFamily="Calibri"
-               FontSize="18"
-               FontWeight="Bold"
-               Foreground="DarkSlateBlue"/>
-
-                <TextBlock Text="Add" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
-                <TextBox x:Name="AddStockBox" Grid.Row="2" Grid.Column="0" Height="25"  Margin="1"/>
-
-                <TextBlock Text="Remove" Grid.Row="1" Grid.Column="1"  VerticalAlignment="Center"/>
-                <TextBox x:Name="RemoveStockBox" Grid.Row="2" Grid.Column="1" Height="25"  Margin="1"/>
-
-                <TextBlock Text="Edit Stock" Grid.Row="1" Grid.Column="2"  VerticalAlignment="Center"/>
-                <TextBox x:Name="EditStockBox" Grid.Row="2" Grid.Column="2" Height="25"  Margin="1"/>
-
-                <Button x:Name="UpdateButton"
-        Content="Update"
-        Grid.Row="4"
-        Grid.Column="0"
-                        Grid.ColumnSpan="3"
-        Margin="2"
-        Height="25" Width="100"
-        HorizontalAlignment="Center"
-        Click="UpdateButton_Click"
-                        Background="LightBlue"/>
-
-            </Grid>
-
+            <Button x:Name="AddProductExpander" Content="Add New" Grid.Column="4" Click="AddNewProduct_Click" Margin="0,0,5,0"/>
         </Grid>
+
         <DataGrid x:Name="ProductGrid"
                   AutoGenerateColumns="False"
-                  RowStyle="{StaticResource LowStockRowStyle}"
+       
                   ItemsSource="{Binding Products}"
                   CanUserAddRows="False"
                   CanUserDeleteRows="False"
+                  CanUserResizeRows="False"
                   IsReadOnly="True"
                   Margin="5"
-                  Grid.Row="1"
-                  Grid.Column="0"
-                  SelectionChanged="ProductGrid_SelectionChanged">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Product ID" Binding="{Binding ID}" Width="*"/>
-                <DataGridTextColumn Header="Product Name" Binding="{Binding Name}" Width="*"/>
+                  Grid.Row="3"
+                  Grid.ColumnSpan="1"
+                  MouseLeftButtonUp="ProductGrid_MouseLeftButtonUp">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Product ID" Binding="{Binding ID}" Width="*"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="*"/>
+                    <DataGridTextColumn Header="Product Name" Binding="{Binding Name}" Width="*"/>
                 <DataGridTextColumn Header="Stock" Binding="{Binding Quantity}" Width="*"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <StaticResource ResourceKey="StatusCellStyle"/>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
             </DataGrid.Columns>
-        </DataGrid>
+            </DataGrid>
 
-        <Button x:Name="RemoveProduct"
-        Content="Remove Product"
-        Grid.Row="2"
-        Height="25"
-        Width="150"
-                Background="Tomato"
-                Foreground="White"
-        Click="RemoveProduct_Click" Margin="225,5,225,10"/>
-
-    </Grid>
+        </Grid>
 </Window>

@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClassDesign;
+using UIDesign;
 
 namespace UIDesign
 {
@@ -22,18 +23,17 @@ namespace UIDesign
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ObservableCollection<Product> Products { get; set; }
+        public ObservableCollection<Product> Products => Inventory.Products;
 
         public MainWindow()
         {
             InitializeComponent();
-            Products = new ObservableCollection<Product>();
             this.DataContext = this; // Now {Binding Products} will work
-            Product p = new Product("Banana", "123", 20);
-            Product q = new Product("Apple", "124", 4);
-            Product r = new Product("Orange", "125", 6);
-            Product s = new Product("Pineapple", "126", 10);
-            Product t = new Product("Mango", "127", 11);
+            Product p = new Product("Banana", "123", 20, 15);
+            Product q = new Product("Apple", "124", 4,20);
+            Product r = new Product("Orange", "125", 6, 50);
+            Product s = new Product("Pineapple", "126", 10, 60);
+            Product t = new Product("Mango", "127", 11, 10);
             Products.Add(p);
             Products.Add(q);
             Products.Add(r);
@@ -42,53 +42,50 @@ namespace UIDesign
 
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        private void OpenAddProductWindow_Click(object sender, RoutedEventArgs e)
         {
-            try
+            var selectedProduct = ProductGrid.SelectedItem;
+            AddProductWindow popup = new AddProductWindow();
+            popup.Owner = this;
+
+            if (popup.ShowDialog() == true)
             {
-                string productName = NameBox.Text?.Trim();
-                string productID = IDBox.Text?.Trim();
-                
-                if (string.IsNullOrWhiteSpace(productName))
-                {
-                    throw new Exception("Please enter a product name.");
-                }
-
-                if (string.IsNullOrWhiteSpace(productID))
-                {
-                    throw new Exception("Please enter a product ID.");
-                }
-
-                if (!int.TryParse(QuantityBox.Text, out int quantity) || quantity < 0)
-                {
-                    throw new Exception("Please enter a valid and positive product quantity.");
-                }
-
-                // Check if product ID already exists
-                if (Products.Any(p => p.ID == productID))
-                {
-                    throw new Exception("A product with this ID already exists.");
-                }
-
-                // Create and add new product
-                var product = new Product(productName, productID, quantity);
-                Products.Add(product);
-                
-
-                // Clear input fields
-                ClearInputFields();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
+                // Access values if needed via properties or shared data
+                MessageBox.Show($"{popup.product.Name} added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
-        private void ClearInputFields()
+        private void AddNewProduct_Click(object sender, RoutedEventArgs e)
         {
-            NameBox.Clear();
-            IDBox.Clear();
-            QuantityBox.Clear();
+            AddNewProductPanel.Visibility = Visibility.Visible;
+            AddProductBorder.Visibility = Visibility.Visible;
+            if(ViewProductGrid.Visibility == Visibility.Collapsed)
+            {
+                ViewProductGrid.Visibility = Visibility.Visible;
+                ViewProductBorder.Visibility = Visibility.Collapsed;
+                ProductDescription.Visibility = Visibility.Collapsed;
+                ProductStatistics.Visibility = Visibility.Collapsed;
+                ProductModifierButtons.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void CloseAddProductPanelButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewProductPanel.Visibility = Visibility.Collapsed;
+            AddProductBorder.Visibility = Visibility.Collapsed;
+
+            if (ViewProductGrid.Visibility == Visibility.Visible &&
+                ViewProductBorder.Visibility == Visibility.Collapsed &&
+                ProductDescription.Visibility == Visibility.Collapsed &&
+                ProductStatistics.Visibility == Visibility.Collapsed &&
+                ProductModifierButtons.Visibility == Visibility.Collapsed)
+            {
+                ViewProductGrid.Visibility = Visibility.Collapsed;
+                ViewProductBorder.Visibility = Visibility.Visible;
+                ProductDescription.Visibility = Visibility.Visible;
+                ProductStatistics.Visibility = Visibility.Visible;
+                ProductModifierButtons.Visibility = Visibility.Visible;
+            }
         }
 
         private void RemoveProduct_Click(object sender, RoutedEventArgs e)
@@ -112,77 +109,86 @@ namespace UIDesign
             }
         }
 
-        private void ProductGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            // Show the stock panel only if a product is selected
-            StockPanel.Visibility = ProductGrid.SelectedItem is Product ? Visibility.Visible : Visibility.Collapsed;
-        }
+        private object previouslySelectedItem = null;
 
-        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        private void ProductGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            var selectedProduct = ProductGrid.SelectedItem as Product;
-            try
+            var currentSelectedItem = ProductGrid.SelectedItem;
+
+            if (currentSelectedItem == previouslySelectedItem && currentSelectedItem != null)
             {
-                // Add stock
-                if (int.TryParse(AddStockBox.Text, out int addValue) && addValue > 0)
+                // Same item clicked again: collapse the panel and deselect
+                if (AddNewProductPanel.Visibility == Visibility.Visible &&
+                    ViewProductBorder.Visibility == Visibility.Collapsed &&
+                    ProductDescription.Visibility == Visibility.Collapsed &&
+                    ProductStatistics.Visibility == Visibility.Collapsed &&
+                    ProductModifierButtons.Visibility == Visibility.Collapsed)
                 {
-                    if (selectedProduct.Quantity + addValue < 6 && selectedProduct.Quantity + addValue > 0)
-                    {
-                        MessageBox.Show("Low stock alert", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        selectedProduct.Quantity += addValue;
-                    }
-                    else
-                        selectedProduct.Quantity += addValue;
+                    ViewProductGrid.Visibility = Visibility.Visible;
+                    ViewProductBorder.Visibility = Visibility.Collapsed;
+                    ProductDescription.Visibility = Visibility.Collapsed;
+                    ProductStatistics.Visibility = Visibility.Collapsed;
+                    ProductModifierButtons.Visibility = Visibility.Collapsed;
                 }
-
-                // Remove stock
-                if (int.TryParse(RemoveStockBox.Text, out int removeValue) && removeValue > 0)
+                else if (ViewProductGrid.Visibility == Visibility.Visible &&
+                    AddNewProductPanel.Visibility == Visibility.Visible &&
+                    ViewProductBorder.Visibility == Visibility.Visible &&
+                    ProductDescription.Visibility == Visibility.Visible &&
+                    ProductStatistics.Visibility == Visibility.Visible &&
+                    ProductModifierButtons.Visibility == Visibility.Visible)
                 {
-                    if (selectedProduct.Quantity - removeValue < 0)
-                    {
-                        MessageBox.Show("Stock will be negative.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        selectedProduct.Quantity = 0;
-                    }
-                    else if (selectedProduct.Quantity - removeValue < 6 && selectedProduct.Quantity - removeValue > 0)
-                    {
-                        MessageBox.Show("Low stock alert", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        selectedProduct.Quantity -= removeValue;
-                    }
-                    else    
-                    selectedProduct.Quantity -= removeValue;
+                    ViewProductBorder.Visibility = Visibility.Collapsed;
+                    ProductDescription.Visibility = Visibility.Collapsed;
+                    ProductStatistics.Visibility = Visibility.Collapsed;
+                    ProductModifierButtons.Visibility = Visibility.Collapsed;
                 }
-
-                // Edit stock
-                if (int.TryParse(EditStockBox.Text, out int newStockValue))
+                else if (ViewProductGrid.Visibility == Visibility.Visible &&
+                    AddNewProductPanel.Visibility == Visibility.Collapsed &&
+                    ViewProductBorder.Visibility == Visibility.Visible &&
+                    ProductDescription.Visibility == Visibility.Visible &&
+                    ProductStatistics.Visibility == Visibility.Visible &&
+                    ProductModifierButtons.Visibility == Visibility.Visible)
                 {
-                    if (newStockValue < 0)
-                    {
-                        MessageBox.Show("Stock will be negative.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        selectedProduct.Quantity = 0;
-                    }
-                    else if (newStockValue < 6 && newStockValue > 0)
-                    {
-                        MessageBox.Show("Low stock alert", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        selectedProduct.Quantity = newStockValue;
-                    }
-                    else
-                        selectedProduct.Quantity = newStockValue;
+                    ViewProductGrid.Visibility = Visibility.Collapsed;
                 }
-
-                // Refresh the DataGrid to reflect the update
-                ProductGrid.Items.Refresh();
-
-                // Clear the textboxes
-                AddStockBox.Clear();
-                RemoveStockBox.Clear();
-                EditStockBox.Clear();
+                ProductGrid.SelectedItem = null;
+                previouslySelectedItem = null;
             }
-            catch (Exception ex)
+            else if (currentSelectedItem is Product)
             {
-                MessageBox.Show(ex.Message, "Update Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                // New item selected: show the panel
+                if(AddNewProductPanel.Visibility == Visibility.Visible &&
+                    ViewProductBorder.Visibility == Visibility.Collapsed &&
+                    ProductDescription.Visibility == Visibility.Collapsed &&
+                    ProductStatistics.Visibility == Visibility.Collapsed &&
+                    ProductModifierButtons.Visibility == Visibility.Collapsed)
+                {
+                    ViewProductBorder.Visibility = Visibility.Visible;
+                    ProductDescription.Visibility = Visibility.Visible;
+                    ProductStatistics.Visibility = Visibility.Visible;
+                    ProductModifierButtons.Visibility = Visibility.Visible;
+                }
+
+                ViewProductGrid.Visibility = Visibility.Visible;
+                previouslySelectedItem = currentSelectedItem;
+                Product p = currentSelectedItem as Product;
+                ViewProductDescription(p);
+                ViewProductStatistics(p);
             }
         }
 
+        private void ViewProductDescription(Product p)
+        {
+            ProductDescription.Text = $"Product Description\n\tName:\t {p.Name}\n\tID: \t{p.ID}\n\tStock: \t{p.Quantity}\n\tPrice:";
+        }
+
+        private void ViewProductStatistics(Product p)
+        {
+            ProductStatistics.Text = $"Product Description\n\tName:\t {p.Name}\n\tID: \t{p.ID}\n\tStock: \t{p.Quantity}\n\tPrice:";
+        }
+
+
+        
 
     }
 }

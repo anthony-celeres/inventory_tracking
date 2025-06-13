@@ -1,13 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:UIDesign">
+                    xmlns:local="clr-namespace:UIDesign">
 
     <local:QuantityToBrushConverter x:Key="QuantityToBrushConverter"/>
 
-    <Style x:Key="LowStockRowStyle" TargetType="DataGridRow">
-        <Setter Property="Background"
-            Value="{Binding Quantity, Converter={StaticResource QuantityToBrushConverter}}" />
-        <Setter Property="Foreground" Value="Black"/>
+    <!-- Style for only the Status column cell -->
+    <Style x:Key="StatusCellStyle" TargetType="TextBlock">
+        <Setter Property="Background" 
+                Value="{Binding Quantity, Converter={StaticResource QuantityToBrushConverter}}"/>
+        <Setter Property="Padding" Value="4"/>
     </Style>
 
 </ResourceDictionary>

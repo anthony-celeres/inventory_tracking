@@ -13,16 +13,17 @@ namespace ClassDesign
 
     public class Inventory 
     {
-        public static ObservableCollection<Product> products { get; } = new ObservableCollection<Product>();
+        public static ObservableCollection<Product> Products { get; } = new ObservableCollection<Product>();
 
-        public void AddProduct(Product product)
+        public static void AddProduct(Product product)
         {
-            products.Add (product);
+
+            Products.Add(product);
         }
 
-        public void RemoveProduct(Product product)
+        public static void RemoveProduct(Product product)
         {
-            products.Remove(product);
+            Products.Remove(product);
         }
     }
 
