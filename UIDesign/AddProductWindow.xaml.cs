@@ -52,7 +52,7 @@ namespace UIDesign
                     throw new InvalidProductException("Quantity must be a valid number.");
                 }
 
-                if (!int.TryParse(PriceBox.Text, out int price))
+                if (!decimal.TryParse(PriceBox.Text, out decimal price))
                 {
                     throw new InvalidProductException("Price must be a valid number.");
                 }
@@ -86,6 +86,21 @@ namespace UIDesign
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to exit without saving?", "Confirm Exit", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void EscapeButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+                this.Close();
+            
         }
 
 

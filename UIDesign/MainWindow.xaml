@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIDesign"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="800" Background="#1d1d1d">
+        Title="MainWindow" Height="500" Width="700" Background="#1d1d1d">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="25"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -20,11 +20,11 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="ViewProductGrid" Grid.Row="1" Margin="0,10,0,10" Visibility="Collapsed">
+        <Grid x:Name="ViewProductGrid" Grid.Row="1" Margin="0,10,0,10" Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="150" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Border x:Name="ViewProductBorder" BorderBrush="#BABABA" BorderThickness="0.5" Grid.Row="1" Margin="10,0,0,0" Grid.ColumnSpan="2" Height="100" CornerRadius="5" Visibility="Visible"/>
@@ -32,26 +32,24 @@
             <TextBox x:Name="ProductStatistics" Grid.Row="0" VerticalAlignment="Center" Grid.Column="1" Foreground="#BABABA" Margin="5,0,5,0" Height="85" Background="#1d1d1d" BorderThickness="0" Visibility="Visible"/>
 
             <Grid x:Name="ProductModifierButtons" Grid.Column="2" VerticalAlignment="Center" Visibility="Visible">
-                <StackPanel Margin="-25,0,0,0">
+                <StackPanel Margin="0,0,0,0">
                     <Button x:Name="UpdateProductStock"
-                        Content="Update Stock"
+                        Content="{Binding IsUpdatePanelOpen, Converter={StaticResource UpdateStockContentConverter}}"
                         Grid.Row="0"
                         Height="25"
-                        Width="150"
+                        Width="125"
                         Margin="0,0,0,5"
-                        Background="LightGreen"
-                        Foreground="Black"
-                        Click="RemoveProduct_Click" 
+                        Style="{StaticResource UpdateStockButton}"
+                        Click="UpdateStockButton_Click" 
                         HorizontalAlignment="Center" />
 
                     <Button x:Name="EditProductDescription"
                         Content="Edit Description"
                         Grid.Row="1"
                         Height="25"
-                        Width="150"
+                        Width="124"
                         Margin="0,5,0,5"
-                        Background="LightGreen"
-                        Foreground="Black"
+                        Style="{StaticResource RoundedNormalButton}"
                         Click="RemoveProduct_Click" 
                         HorizontalAlignment="Center"/>
 
@@ -59,18 +57,52 @@
                         Content="Remove Product"
                         Grid.Row="2"
                         Height="25"
-                        Width="150"
+                        Width="125"
                         Margin="0,5,0,0"
-                        Background="Tomato"
-                        Foreground="White"
+                        Style="{StaticResource RoundedExitButton}"
                         Click="RemoveProduct_Click" 
                         HorizontalAlignment="Center"/>
                 </StackPanel>
             </Grid>
 
-            <Border x:Name="AddProductBorder" BorderBrush="#BABABA" BorderThickness="0.5" Grid.Column="3" Margin="-25,0,10,0" CornerRadius="5" Visibility="Collapsed"/>
+            <Grid x:Name="UpdateStockPanel" Grid.Column="3" Visibility="Visible">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="35" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Add"
+                       Foreground="#FAFAFA"
+                           VerticalAlignment="Top" Height="16"
+                           HorizontalAlignment="Center"
+                           Margin="0,10,0,0" RenderTransformOrigin="0.466,0.836"/>
+                <TextBox x:Name="AddStockBox" Style="{StaticResource RoundedTextBox}" Height="25" Margin="0,5,0,2" Grid.Column="1" Grid.Row="0"/>
+                <TextBlock Text="Sub"
+                       Foreground="#FAFAFA"
+                       Grid.Row="1"
+                           VerticalAlignment="Center" Height="16"
+                           HorizontalAlignment="Center"/>
+                <TextBox x:Name="SubStockBox" Style="{StaticResource RoundedTextBox}" Height="25" Margin="0,2,0,2" Grid.Column="1" Grid.Row="1"/>
+                <TextBlock Text="Edit"
+                       Foreground="#FAFAFA"
+                       Grid.Row="2"
+                           VerticalAlignment="Center" Height="16"
+                           HorizontalAlignment="Center"/>
+                <TextBox x:Name="EditStockBox" Style="{StaticResource RoundedTextBox}" Height="25" Margin="0,2,0,2" Grid.Column="1" Grid.Row="2"/>
+
+                <Button x:Name="AddStockButton" Content="Save" FontSize="10" Grid.Column="2" Grid.Row="0" Height="25" Width="32" Margin="2,5,0,2" Style="{StaticResource RoundedNormalButton}" Click="AddStockButton_Click"/>
+                <Button x:Name="SubStockButton"  Content="Save" FontSize="10" Grid.Column="2" Grid.Row="1" Height="25" Width="32" Margin="2,2,0,2" Style="{StaticResource RoundedNormalButton}" Click="SubStockButton_Click"/>
+                <Button x:Name="EditStockButton" Content="Save" FontSize="10" Grid.Column="2" Grid.Row="2" Height="25" Width="32" Margin="2,2,0,2" Style="{StaticResource RoundedNormalButton}" Click="EditStockButton_Click"/>
+            </Grid>
         </Grid>
-        
+
         <TextBlock Text="Store Inventory Tracker"
            Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
            VerticalAlignment="Center"
@@ -80,30 +112,36 @@
            FontWeight="Bold"
            Foreground="#4681a8"/>
 
-        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="70" />
-                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="95" />
+                <ColumnDefinition Width="95" />
                 <ColumnDefinition />
                 <ColumnDefinition Width="100" />
                 <ColumnDefinition Width="150" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="   Search by:"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#BABABA"/>
-            <ComboBox x:Name="SizeComboBox" Grid.Column="1" Margin="0,0,5,0">
+            <ComboBox x:Name="FilterByComboBox" Grid.Column="0" Margin="5,0,0,0" Height="25" BorderThickness="0" SelectedIndex="0" Style="{StaticResource RoundedComboBox}" >
+                <ComboBoxItem Content="Filter by" IsEnabled="False"/>
+                <ComboBoxItem Content="Status"/>
+                <ComboBoxItem Content="Category"/>
+            </ComboBox>
+            <ComboBox x:Name="SearchByComboBox" Grid.Column="1" Margin="5,0,0,0" Height="25" BorderThickness="0" SelectedIndex="0" Style="{StaticResource RoundedComboBox}" >
+                <ComboBoxItem Content="Search by" IsEnabled="False"/>
                 <ComboBoxItem Content="ID"/>
                 <ComboBoxItem Content="Name"/>
             </ComboBox>
-            <TextBox x:Name="SearchBox" Grid.Column="2" Margin="5,0,0,0"/>
-            <Button x:Name="SearchButton" Grid.Column="3" Content="Search" Margin="5,0,5,0"/>
 
-            <Button x:Name="AddProductExpander" Content="Add New" Grid.Column="4" Click="OpenAddProductWindow_Click" Margin="0,0,5,0"/>
+            <TextBox x:Name="SearchBox" Grid.Column="2" Margin="5,0,0,0" Style="{StaticResource RoundedTextBox}"/>
+            <Button x:Name="SearchButton" Grid.Column="3" Content="Search" Margin="5,0,5,0" Style="{StaticResource RoundedNormalButton}"/>
+
+            <Button x:Name="AddProductExpander" Content="Add New" Grid.Column="4" Click="OpenAddProductWindow_Click" Margin="0,0,5,0" Style="{StaticResource RoundedAddButton}"/>
         </Grid>
 
         <DataGrid x:Name="ProductGrid"
                   AutoGenerateColumns="False"
-       
                   ItemsSource="{Binding Products}"
+                  Background="#1d1d1d"
                   CanUserAddRows="False"
                   CanUserDeleteRows="False"
                   CanUserResizeRows="False"
@@ -112,10 +150,10 @@
                   Grid.Row="3"
                   Grid.ColumnSpan="1"
                   MouseLeftButtonUp="ProductGrid_MouseLeftButtonUp">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Product ID" Binding="{Binding ID}" Width="*"/>
-                    <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="*"/>
-                    <DataGridTextColumn Header="Product Name" Binding="{Binding Name}" Width="*"/>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Product ID" Binding="{Binding ID}" Width="*"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="*"/>
+                <DataGridTextColumn Header="Product Name" Binding="{Binding Name}" Width="*"/>
                 <DataGridTextColumn Header="Stock" Binding="{Binding Quantity}" Width="*"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*">
                     <DataGridTextColumn.ElementStyle>
@@ -124,7 +162,7 @@
                 </DataGridTextColumn>
 
             </DataGrid.Columns>
-            </DataGrid>
+        </DataGrid>
 
-        </Grid>
+    </Grid>
 </Window>

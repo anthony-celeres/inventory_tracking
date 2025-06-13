@@ -8,24 +8,86 @@ using System.Threading.Tasks;
 
 namespace ClassDesign
 {
-    public class Product
+    public class Product : INotifyPropertyChanged
     {
-        public string Name { get; set; }
-        public string ID { get; set; }
-        public int Quantity {  get; set; }
-        public int Price {  get; set; }
-        public string Status {  get; set; }
+        private string name;
+        private string id;
+        private int quantity;
+        private decimal price;
+        private string status;
 
-        public Product(string name, string id, int quantity, int price) 
+        public string Name
         {
-            
-            this.Name = name;
-            this.ID = id;
-            this.Quantity = quantity;
-            this.Price = price;
+            get => name;
+            set
+            {
+                if (name != value)
+                {
+                    name = value;
+                    OnPropertyChanged(nameof(Name));
+                }
+            }
+        }
 
-            UpdateProductStockStatus(this.Quantity);
-            
+        public string ID
+        {
+            get => id;
+            set
+            {
+                if (id != value)
+                {
+                    id = value;
+                    OnPropertyChanged(nameof(ID));
+                }
+            }
+        }
+
+        public int Quantity
+        {
+            get => quantity;
+            set
+            {
+                if (quantity != value)
+                {
+                    quantity = value;
+                    OnPropertyChanged(nameof(Quantity));
+                }
+            }
+        }
+
+        public decimal Price
+        {
+            get => price;
+            set
+            {
+                if (price != value)
+                {
+                    price = value;
+                    OnPropertyChanged(nameof(Price));
+                }
+            }
+        }
+
+        public string Status
+        {
+            get => status;
+            set
+            {
+                if (status != value)
+                {
+                    status = value;
+                    OnPropertyChanged(nameof(Status));
+                }
+            }
+        }
+
+        public Product(string name, string id, int quantity, decimal price)
+        {
+            Name = name;
+            ID = id;
+            Quantity = quantity;
+            Price = price;
+            UpdateProductStockStatus(Quantity);
         }
 
         public void UpdateProductStockStatus(int quantity)
@@ -34,12 +96,16 @@ namespace ClassDesign
                 throw new InvalidProductException("Quantity cannot be negative.");
             else if (quantity == 0)
                 Status = "Empty Stock";
-            else if (quantity <= 5 && quantity > 0)
+            else if (quantity <= 5)
                 Status = "Low Stock";
-            else if (quantity <= 15 && quantity > 5)
+            else if (quantity <= 15)
                 Status = "Moderate Stock";
-            else if (quantity > 15)
+            else
                 Status = "High Stock";
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

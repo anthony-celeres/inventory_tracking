@@ -10,6 +10,7 @@
             </ResourceDictionary.MergedDictionaries>
 
             <local:QuantityToBrushConverter x:Key="QuantityToBrushConverter"/>
+            <local:UpdateStockContentConverter x:Key="UpdateStockContentConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>
