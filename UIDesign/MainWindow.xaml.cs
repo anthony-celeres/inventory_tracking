@@ -38,19 +38,26 @@ namespace UIDesign
         {
             InitializeComponent();
             DataContext = this;
-            this.DataContext = this; // Now {Binding Products} will work
-            Product p = new Product("Banana", "123", 20, 15);
-            Product q = new Product("Apple", "124", 4,20);
-            Product r = new Product("Orange", "125", 6, 50);
-            Product s = new Product("Pineapple", "126", 10, 60);
-            Product t = new Product("Mango", "127", 11, 10);
-            Products.Add(p);
-            Products.Add(q);
-            Products.Add(r);
-            Products.Add(s);
-            Products.Add(t);
+            this.DataContext = this; 
 
+            // Initial Product List
+            Products.Add(new Product("Banana", "123", 20, 15));
+            Products.Add(new Product("Apple", "124", 4, 20));
+            Products.Add(new Product("Orange", "125", 6, 50));
+            Products.Add(new Product("Pineapple", "126", 10, 60));
+            Products.Add(new Product("Mango", "127", 11, 10));
+            Products.Add(new Product("Watermelon", "128", 18, 25));
+            Products.Add(new Product("Grapes", "129", 3, 40));
+            Products.Add(new Product("Strawberry", "130", 7, 35));
+            Products.Add(new Product("Papaya", "131", 0, 20));
+            Products.Add(new Product("Avocado", "132", 5, 45));
+            Products.Add(new Product("Lemon", "133", 8, 12));
+            Products.Add(new Product("Guava", "134", 14, 22));
+            Products.Add(new Product("Peach", "135", 2, 30));
+            Products.Add(new Product("Kiwi", "136", 6, 28));
+            Products.Add(new Product("Dragonfruit", "137", 12, 55));
         }
+
 
         private void OpenAddProductWindow_Click(object sender, RoutedEventArgs e)
         {
@@ -114,12 +121,12 @@ namespace UIDesign
 
         private void ViewProductDescription(Product p)
         {
-            ProductDescription.Text = $"Product Description\n\tName:\t {p.Name}\n\tID: \t{p.ID}\n\tStock: \t{p.Quantity}\n\tPrice:";
+            ProductDescription.Text = $"Product Description\n   Name:\t {p.Name}\n   ID: \t{p.ID}\n   Stock: \t{p.Quantity}\n   Price:\t{p.Price}";
         }
 
         private void ViewProductStatistics(Product p)
         {
-            ProductStatistics.Text = $"Product Description\n\tName:\t {p.Name}\n\tID: \t{p.ID}\n\tStock: \t{p.Quantity}\n\tPrice:";
+            ProductStatistics.Text = $"Product Description\n   Name:\t {p.Name}\n   ID: \t{p.ID}\n   Stock: \t{p.Quantity}\n   Price:\t{p.Price}";
         }
 
         private void UpdateStockButton_Click(object sender, RoutedEventArgs e)
@@ -251,6 +258,52 @@ namespace UIDesign
                 MessageBox.Show("Please select a product to edit.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            string selectedCriteria = (SearchByComboBox.SelectedItem as ComboBoxItem)?.Content?.ToString();
+            string searchTerm = SearchBox.Text.Trim().ToLower();
+
+            if (string.IsNullOrWhiteSpace(searchTerm) || selectedCriteria == "Search by")
+            {
+                MessageBox.Show("Please select a search criterion and enter a value.", "Invalid Search", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            IEnumerable<Product> result = Inventory.Products;
+
+            switch (selectedCriteria)
+            {
+                case "ID":
+                    result = result.Where(p => p.ID.ToLower().Contains(searchTerm));
+                    break;
+                case "Name":
+                    result = result.Where(p => p.Name.ToLower().Contains(searchTerm));
+                    break;
+                case "Stock":
+                    if (int.TryParse(searchTerm, out int qty))
+                        result = result.Where(p => p.Quantity == qty);
+                    else
+                    {
+                        MessageBox.Show("Enter a valid number for Stock.");
+                        return;
+                    }
+                    break;
+                case "Price":
+                    if (decimal.TryParse(searchTerm, out decimal price))
+                        result = result.Where(p => p.Price == price);
+                    else
+                    {
+                        MessageBox.Show("Enter a valid number for Price.");
+                        return;
+                    }
+                    break;
+            }
+
+            SearchResultGrid.ItemsSource = result.ToList();
+            SearchResultGrid.Visibility = Visibility.Visible;
+        }
+
 
     }
 }
