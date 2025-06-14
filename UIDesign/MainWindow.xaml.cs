@@ -41,24 +41,69 @@ namespace UIDesign
         {
             InitializeComponent();
             DataContext = this;
-            this.DataContext = this; 
+            this.DataContext = this;
 
             // Initial Product List
-            Products.Add(new Product("Banana", "123", 20, 15));
-            Products.Add(new Product("Apple", "124", 4, 20));
-            Products.Add(new Product("Orange", "125", 6, 50));
-            Products.Add(new Product("Pineapple", "126", 10, 60));
-            Products.Add(new Product("Mango", "127", 11, 10));
-            Products.Add(new Product("Watermelon", "128", 18, 25));
-            Products.Add(new Product("Grapes", "129", 3, 40));
-            Products.Add(new Product("Strawberry", "130", 7, 35));
-            Products.Add(new Product("Papaya", "131", 0, 20));
-            Products.Add(new Product("Avocado", "132", 5, 45));
-            Products.Add(new Product("Lemon", "133", 8, 12));
-            Products.Add(new Product("Guava", "134", 14, 22));
-            Products.Add(new Product("Peach", "135", 2, 30));
-            Products.Add(new Product("Kiwi", "136", 6, 28));
-            Products.Add(new Product("Dragonfruit", "137", 12, 55));
+            Products.Add(new Product("Potato Chips", "P001", 10, 15.00m, ProductCategory.Snacks));
+            Products.Add(new Product("Chocolate Bar", "P002", 8, 12.50m, ProductCategory.Snacks));
+            Products.Add(new Product("Crackers", "P003", 12, 10.00m, ProductCategory.Snacks));
+            Products.Add(new Product("Gummy Bears", "P004", 5, 18.00m, ProductCategory.Snacks));
+            Products.Add(new Product("Mixed Nuts", "P005", 7, 20.00m, ProductCategory.Snacks));
+
+            Products.Add(new Product("Bottled Water", "B001", 20, 10.00m, ProductCategory.Beverages));
+            Products.Add(new Product("Soda (Cola)", "B002", 15, 17.00m, ProductCategory.Beverages));
+            Products.Add(new Product("Iced Tea", "B003", 10, 18.50m, ProductCategory.Beverages));
+            Products.Add(new Product("Energy Drink", "B004", 8, 25.00m, ProductCategory.Beverages));
+            Products.Add(new Product("Canned Coffee", "B005", 12, 22.00m, ProductCategory.Beverages));
+
+            Products.Add(new Product("Toothpaste", "PC001", 10, 30.00m, ProductCategory.PersonalCare));
+            Products.Add(new Product("Shampoo (Sachet)", "PC002", 25, 7.00m, ProductCategory.PersonalCare));
+            Products.Add(new Product("Soap Bar", "PC003", 18, 15.00m, ProductCategory.PersonalCare));
+            Products.Add(new Product("Deodorant Stick", "PC004", 6, 50.00m, ProductCategory.PersonalCare));
+            Products.Add(new Product("Sanitary Napkins", "PC005", 10, 40.00m, ProductCategory.PersonalCare));
+
+            Products.Add(new Product("Canned Tuna", "PG001", 15, 25.00m, ProductCategory.PackagedGoods));
+            Products.Add(new Product("Instant Noodles", "PG002", 30, 10.00m, ProductCategory.PackagedGoods));
+            Products.Add(new Product("Sardines", "PG003", 20, 15.00m, ProductCategory.PackagedGoods));
+            Products.Add(new Product("Pack of Rice", "PG004", 5, 50.00m, ProductCategory.PackagedGoods));
+            Products.Add(new Product("Boxed Cereal (mini)", "PG005", 8, 35.00m, ProductCategory.PackagedGoods));
+
+            Products.Add(new Product("Dishwashing Liquid", "HH001", 10, 25.00m, ProductCategory.HouseholdItems));
+            Products.Add(new Product("Laundry Powder (Small)", "HH002", 12, 20.00m, ProductCategory.HouseholdItems));
+            Products.Add(new Product("Trash Bags", "HH003", 15, 18.00m, ProductCategory.HouseholdItems));
+            Products.Add(new Product("Tissue Roll", "HH004", 20, 10.00m, ProductCategory.HouseholdItems));
+            Products.Add(new Product("Air Freshener", "HH005", 7, 45.00m, ProductCategory.HouseholdItems));
+
+            Products.Add(new Product("Cup Noodles", "IM001", 20, 15.00m, ProductCategory.InstantMeals));
+            Products.Add(new Product("Microwaveable Rice Meal", "IM002", 5, 55.00m, ProductCategory.InstantMeals));
+            Products.Add(new Product("Canned Spaghetti", "IM003", 8, 30.00m, ProductCategory.InstantMeals));
+            Products.Add(new Product("Ready-to-Eat Adobo", "IM004", 4, 60.00m, ProductCategory.InstantMeals));
+            Products.Add(new Product("Mac & Cheese Bowl", "IM005", 6, 35.00m, ProductCategory.InstantMeals));
+
+            Products.Add(new Product("Paracetamol", "M001", 25, 5.00m, ProductCategory.OverTheCounterMedicine));
+            Products.Add(new Product("Cough Syrup", "M002", 10, 30.00m, ProductCategory.OverTheCounterMedicine));
+            Products.Add(new Product("Antacid Tablets", "M003", 12, 8.00m, ProductCategory.OverTheCounterMedicine));
+            Products.Add(new Product("Pain Relief Balm", "M004", 10, 20.00m, ProductCategory.OverTheCounterMedicine));
+            Products.Add(new Product("Anti-allergy Capsule", "M005", 15, 10.00m, ProductCategory.OverTheCounterMedicine));
+
+            Products.Add(new Product("Cigarettes", "T001", 50, 8.00m, ProductCategory.Tobacco));
+            Products.Add(new Product("Lighter", "T002", 25, 10.00m, ProductCategory.Tobacco));
+            Products.Add(new Product("Chewing Tobacco", "T003", 10, 15.00m, ProductCategory.Tobacco));
+            Products.Add(new Product("Rolling Paper", "T004", 20, 5.00m, ProductCategory.Tobacco));
+            Products.Add(new Product("Vape Pod", "T005", 7, 60.00m, ProductCategory.Tobacco));
+
+            Products.Add(new Product("Fresh Milk (small)", "D001", 10, 20.00m, ProductCategory.Dairy));
+            Products.Add(new Product("Cheese Slice Pack", "D002", 8, 25.00m, ProductCategory.Dairy));
+            Products.Add(new Product("Yogurt Cup", "D003", 12, 18.00m, ProductCategory.Dairy));
+            Products.Add(new Product("Butter Stick", "D004", 5, 30.00m, ProductCategory.Dairy));
+            Products.Add(new Product("Creamer Sachet", "D005", 15, 5.00m, ProductCategory.Dairy));
+
+            Products.Add(new Product("Ballpen", "S001", 30, 8.00m, ProductCategory.Stationery));
+            Products.Add(new Product("Notebook (small)", "S002", 20, 15.00m, ProductCategory.Stationery));
+            Products.Add(new Product("Correction Tape", "S003", 10, 25.00m, ProductCategory.Stationery));
+            Products.Add(new Product("Envelopes", "S004", 40, 5.00m, ProductCategory.Stationery));
+            Products.Add(new Product("Pencil", "S005", 35, 6.00m, ProductCategory.Stationery));
+
         }
 
 
@@ -183,7 +228,7 @@ namespace UIDesign
                 // Update
                 p.Quantity += stock;
                 p.UpdateProductStockStatus(p.Quantity);
-                Inventory.UpdateProduct(p, p.Name, p.ID, p.Quantity, p.Price);
+                Inventory.UpdateProduct(p, p.Name, p.ID, p.Quantity, p.Price, p.Category);
 
                 // Refresh both grids
                 ProductGrid.Items.Refresh();
@@ -230,7 +275,7 @@ namespace UIDesign
                 // Update
                 p.Quantity -= stock;
                 p.UpdateProductStockStatus(p.Quantity);
-                Inventory.UpdateProduct(p, p.Name, p.ID, p.Quantity, p.Price);
+                Inventory.UpdateProduct(p, p.Name, p.ID, p.Quantity, p.Price, p.Category);
 
                 // Refresh both grids
                 ProductGrid.Items.Refresh();
@@ -275,7 +320,7 @@ namespace UIDesign
                 // Update
                 p.Quantity = stock;
                 p.UpdateProductStockStatus(p.Quantity);
-                Inventory.UpdateProduct(p, p.Name, p.ID, p.Quantity, p.Price);
+                Inventory.UpdateProduct(p, p.Name, p.ID, p.Quantity, p.Price, p.Category);
 
                 // Refresh both grids
                 ProductGrid.Items.Refresh();

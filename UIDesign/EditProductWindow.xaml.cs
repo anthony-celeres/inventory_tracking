@@ -29,12 +29,17 @@ namespace UIDesign
             InitializeComponent();
             product = selectedProduct;
 
-            // Now you can use _product anywhere, like:
+            // Populate UI with current product values
             NameBox.Text = product.Name;
             IDBox.Text = product.ID;
             QuantityBox.Text = product.Quantity.ToString();
-            PriceBox.Text = product.Price.ToString("F2"); // Format price to 2 decimal places
+            PriceBox.Text = product.Price.ToString("F2");
+
+            // Populate category combo box with enum values and select current
+            CategoryBox.ItemsSource = Enum.GetValues(typeof(ProductCategory));
+            CategoryBox.SelectedItem = product.Category;
         }
+
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -43,49 +48,39 @@ namespace UIDesign
                 string id = IDBox.Text;
 
                 if (string.IsNullOrWhiteSpace(name))
-                {
                     throw new InvalidProductException("Please enter a product name.");
-                }
 
                 if (string.IsNullOrWhiteSpace(id))
-                {
                     throw new InvalidProductException("Please enter a product ID.");
-                }
 
                 if (!int.TryParse(QuantityBox.Text, out int quantity))
-                {
                     throw new InvalidProductException("Quantity must be a valid number.");
-                }
 
                 if (!decimal.TryParse(PriceBox.Text, out decimal price))
-                {
                     throw new InvalidProductException("Price must be a valid number.");
-                }
+
+                if (CategoryBox.SelectedItem == null)
+                    throw new InvalidProductException("Please select a product category.");
 
                 if (Inventory.Products.Any(p => p != product && p.ID == id))
-                {
                     throw new Exception("A product with this ID already exists.");
-                }
-
 
                 if (quantity <= 0)
-                {
                     throw new InvalidProductException("Quantity must be greater than zero.");
-                }
 
                 if (price <= 0)
-                {
                     throw new InvalidProductException("Price must be greater than zero.");
-                }
 
+                // Update product properties
                 product.Name = name;
                 product.ID = id;
                 product.Quantity = quantity;
                 product.Price = price;
+                product.Category = (ProductCategory)CategoryBox.SelectedItem;
                 product.UpdateProductStockStatus(quantity);
 
                 this.DialogResult = true;
-                this.Close(); // only closes if no exceptions occur
+                this.Close(); // Closes only if successful
             }
             catch (InvalidProductException ex)
             {
@@ -96,6 +91,7 @@ namespace UIDesign
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {

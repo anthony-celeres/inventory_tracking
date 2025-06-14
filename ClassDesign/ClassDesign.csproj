@@ -46,6 +46,7 @@
     <Compile Include="InvalidProductException.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Product.cs" />
+    <Compile Include="ProductCategory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

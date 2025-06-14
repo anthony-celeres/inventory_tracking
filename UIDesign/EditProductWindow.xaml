@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UIDesign"
         mc:Ignorable="d"
         Title="EditProductWindow"
-        Height="400"
+        Height="420"
         Width="300"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize"
@@ -21,7 +21,7 @@
             Padding="5"
             BorderBrush="#BABABA"
             BorderThickness="1">
-        <StackPanel VerticalAlignment="Center" Height="378" >
+        <StackPanel VerticalAlignment="Center" Height="398" >
 
             <!-- Title -->
             <Button x:Name="ExcapeButton"
@@ -34,7 +34,7 @@
             <TextBlock Text="Edit Product Description"
                        FontSize="18"
                        FontWeight="Bold"
-                       Margin="0,0,0,20"
+                       Margin="0,0,0,10"
                        HorizontalAlignment="Center"
                        Foreground="#4681a8"/>
 
@@ -55,7 +55,17 @@
                        Margin="20,5,0,0"/>
             <TextBox x:Name="PriceBox" Style="{StaticResource RoundedTextBox}" Margin="20,0,20,0"/>
 
-            <Button x:Name="AddButton"
+            <TextBlock Text="Category:"
+                Foreground="#FAFAFA"
+                Margin="20,5,0,0"/>
+            <ComboBox x:Name="CategoryBox"
+                Margin="20,0,20,0"
+                Height="25"
+                Style="{StaticResource RoundedComboBox}" 
+                Foreground="Black"
+                DisplayMemberPath="." />
+
+            <Button x:Name="SaveButton"
                 Content="✔️ Save Changes"
                 Margin="0,20,0,10"
                 Width="140"

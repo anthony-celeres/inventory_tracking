@@ -27,6 +27,7 @@ namespace UIDesign
         public AddProductWindow()
         {
             InitializeComponent();
+            CategoryBox.ItemsSource = Enum.GetValues(typeof(ProductCategory));
         }
 
         public Product product {  get; private set; }
@@ -38,45 +39,36 @@ namespace UIDesign
                 string id = IDBox.Text;
 
                 if (string.IsNullOrWhiteSpace(name))
-                {
                     throw new InvalidProductException("Please enter a product name.");
-                }
 
                 if (string.IsNullOrWhiteSpace(id))
-                {
                     throw new InvalidProductException("Please enter a product ID.");
-                }
 
                 if (!int.TryParse(QuantityBox.Text, out int quantity))
-                {
                     throw new InvalidProductException("Quantity must be a valid number.");
-                }
 
                 if (!decimal.TryParse(PriceBox.Text, out decimal price))
-                {
                     throw new InvalidProductException("Price must be a valid number.");
-                }
 
                 if (Inventory.Products.Any(p => p.ID == id))
-                {
                     throw new Exception("A product with this ID already exists.");
-                }
 
                 if (quantity <= 0)
-                {
                     throw new InvalidProductException("Quantity must be greater than zero.");
-                }
 
                 if (price <= 0)
-                {
                     throw new InvalidProductException("Price must be greater than zero.");
-                }
 
-                product = new Product(name, id, quantity, price);
+                if (CategoryBox.SelectedItem == null)
+                    throw new InvalidProductException("Please select a product category.");
+
+                ProductCategory category = (ProductCategory)CategoryBox.SelectedItem;
+
+                product = new Product(name, id, quantity, price, category);
                 Inventory.AddProduct(product);
 
                 this.DialogResult = true;
-                this.Close(); // only closes if no exceptions occur
+                this.Close();
             }
             catch (InvalidProductException ex)
             {

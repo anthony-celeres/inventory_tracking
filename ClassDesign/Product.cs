@@ -15,6 +15,7 @@ namespace ClassDesign
         private int quantity;
         private decimal price;
         private string status;
+        private ProductCategory category;
 
         public string Name
         {
@@ -81,13 +82,27 @@ namespace ClassDesign
             }
         }
 
-        public Product(string name, string id, int quantity, decimal price)
+        public ProductCategory Category
+        {
+            get => category;
+            set
+            {
+                if (category != value)
+                {
+                    category = value;
+                    OnPropertyChanged(nameof(Category));
+                }
+            }
+        }
+
+        public Product(string name, string id, int quantity, decimal price, ProductCategory category)
         {
             Name = name;
             ID = id;
             Quantity = quantity;
             Price = price;
-            UpdateProductStockStatus(Quantity);
+            Category = category;
+            UpdateProductStockStatus(quantity);
         }
 
         public void UpdateProductStockStatus(int quantity)
