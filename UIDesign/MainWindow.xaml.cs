@@ -101,24 +101,35 @@ namespace UIDesign
 
         private void ProductGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            DataGrid grid = sender as DataGrid;
-            var currentSelectedItem = grid.SelectedItem;
+            DataGrid clickedGrid = sender as DataGrid;
+            Product selectedProduct = clickedGrid.SelectedItem as Product;
 
-            if (currentSelectedItem == previouslySelectedItem && currentSelectedItem != null)
+            if (selectedProduct == previouslySelectedItem && selectedProduct != null)
             {
                 ViewProductGrid.Visibility = Visibility.Collapsed;
-                grid.SelectedItem = null;
+
+                ProductGrid.SelectedItem = null;
+                SearchResultGrid.SelectedItem = null;
                 previouslySelectedItem = null;
             }
-            else if (currentSelectedItem is Product p)
+            else if (selectedProduct != null)
             {
                 ViewProductGrid.Visibility = Visibility.Visible;
-                previouslySelectedItem = currentSelectedItem;
-                ViewProductDescription(p);
-                ViewProductStatistics(p);
+                previouslySelectedItem = selectedProduct;
+
+                // Deselect in the opposite grid
+                if (clickedGrid == ProductGrid)
+                    SearchResultGrid.SelectedItem = null;
+                else
+                    ProductGrid.SelectedItem = null;
+
+                // Scroll in the correct grid
+                clickedGrid.ScrollIntoView(selectedProduct);
+
+                ViewProductDescription(selectedProduct);
+                ViewProductStatistics(selectedProduct);
             }
         }
-
 
         private void ViewProductDescription(Product p)
         {
@@ -137,29 +148,48 @@ namespace UIDesign
             IsUpdatePanelOpen = !IsUpdatePanelOpen;
         }
 
+        private Product GetSelectedProduct()
+        {
+            if (SearchResultGrid.Visibility == Visibility.Visible)
+                return SearchResultGrid.SelectedItem as Product;
+            else
+                return ProductGrid.SelectedItem as Product;
+        }
+
+
         private void AddStockButton_Click(object sender, RoutedEventArgs e)
         {
-            var currentSelectedItem = ProductGrid.SelectedItem;
-            Product p = currentSelectedItem as Product;
+            Product p = GetSelectedProduct();
+
             try
             {
+                if (p == null)
+                    throw new InvalidProductException("Please select a product to add stock.");
+
                 if (!int.TryParse(AddStockBox.Text, out int stock))
-                {
                     throw new InvalidProductException("Stock must be a valid number.");
-                }
 
                 if (stock <= 0)
                 {
                     AddStockBox.Text = "0";
                     throw new InvalidProductException("Stock must be greater than zero.");
                 }
-                else
-                {
-                    p.Quantity += stock;
-                    p.UpdateProductStockStatus(p.Quantity);
-                    Inventory.UpdateProduct(p, p.Name, p.ID, p.Quantity, p.Price);
-                    ViewProductDescription(p);
-                }
+
+                // Update
+                p.Quantity += stock;
+                p.UpdateProductStockStatus(p.Quantity);
+                Inventory.UpdateProduct(p, p.Name, p.ID, p.Quantity, p.Price);
+
+                // Refresh both grids
+                ProductGrid.Items.Refresh();
+                SearchResultGrid.Items.Refresh();
+                AddStockBox.Text = string.Empty;
+
+                // Show changes
+                ViewProductDescription(p);
+                MessageBox.Show("Stock added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                ProductGrid.ScrollIntoView(p);
             }
             catch (InvalidProductException ex)
             {
@@ -169,36 +199,44 @@ namespace UIDesign
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
 
         private void SubStockButton_Click(object sender, RoutedEventArgs e)
         {
-            var currentSelectedItem = ProductGrid.SelectedItem;
-            Product p = currentSelectedItem as Product;
+            Product p = GetSelectedProduct();
+
             try
             {
+                if (p == null)
+                    throw new InvalidProductException("Please select a product to subtract stock.");
+
                 if (!int.TryParse(SubStockBox.Text, out int stock))
-                {
                     throw new InvalidProductException("Stock must be a valid number.");
-                }
 
                 if (stock <= 0)
                 {
                     SubStockBox.Text = "0";
                     throw new InvalidProductException("Stock must be greater than zero.");
                 }
-                else if(p.Quantity - stock < 0)
-                {
+
+                if (p.Quantity - stock < 0)
                     throw new InvalidProductException("Stock cannot be negative after subtraction.");
-                }
-                else
-                {
-                    p.Quantity -= stock;
-                    p.UpdateProductStockStatus(p.Quantity);
-                    Inventory.UpdateProduct(p,p.Name, p.ID, p.Quantity, p.Price);
-                    ViewProductDescription(p);
-                }
+
+                // Update
+                p.Quantity -= stock;
+                p.UpdateProductStockStatus(p.Quantity);
+                Inventory.UpdateProduct(p, p.Name, p.ID, p.Quantity, p.Price);
+
+                // Refresh both grids
+                ProductGrid.Items.Refresh();
+                SearchResultGrid.Items.Refresh();
+                SubStockBox.Text = string.Empty;
+
+                // Show changes
+                ViewProductDescription(p);
+                MessageBox.Show("Stock subtracted successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                ProductGrid.ScrollIntoView(p);
             }
             catch (InvalidProductException ex)
             {
@@ -208,32 +246,42 @@ namespace UIDesign
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
+
 
         private void EditStockButton_Click(object sender, RoutedEventArgs e)
         {
-            var currentSelectedItem = ProductGrid.SelectedItem;
-            Product p = currentSelectedItem as Product;
+            Product p = GetSelectedProduct();
+
             try
             {
+                if (p == null)
+                    throw new InvalidProductException("Please select a product to edit stock.");
+
                 if (!int.TryParse(EditStockBox.Text, out int stock))
-                {
                     throw new InvalidProductException("Stock must be a valid number.");
-                }
 
                 if (stock <= 0)
                 {
                     EditStockBox.Text = "0";
                     throw new InvalidProductException("Stock must be greater than zero.");
                 }
-                else
-                {
-                    p.Quantity = stock;
-                    p.UpdateProductStockStatus(p.Quantity);
-                    Inventory.UpdateProduct(p, p.Name, p.ID, p.Quantity, p.Price);
-                    ViewProductDescription(p);
-                }
+
+                // Update
+                p.Quantity = stock;
+                p.UpdateProductStockStatus(p.Quantity);
+                Inventory.UpdateProduct(p, p.Name, p.ID, p.Quantity, p.Price);
+
+                // Refresh both grids
+                ProductGrid.Items.Refresh();
+                SearchResultGrid.Items.Refresh();
+                EditStockBox.Text = string.Empty;
+
+                // Show changes
+                ViewProductDescription(p);
+                MessageBox.Show("Stock updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                ProductGrid.ScrollIntoView(p);
             }
             catch (InvalidProductException ex)
             {
@@ -328,6 +376,7 @@ namespace UIDesign
             SearchResultsHeader.Visibility = Visibility.Collapsed;
             NoResultsText.Visibility = Visibility.Collapsed;
             EscapeButton.Visibility = Visibility.Collapsed;
+            SearchBox.Text = string.Empty;
         }
 
     }

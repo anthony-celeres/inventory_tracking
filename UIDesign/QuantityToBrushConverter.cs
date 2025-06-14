@@ -17,7 +17,7 @@ namespace UIDesign
             {
                 if (quantity <= 5)
                     return Brushes.Tomato;
-                else if (quantity <= 10)
+                else if (quantity <= 15)
                     return Brushes.Yellow;
                 else
                     return Brushes.LightGreen;
