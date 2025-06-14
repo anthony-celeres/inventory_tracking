@@ -150,11 +150,16 @@ namespace UIDesign
 
         private Product GetSelectedProduct()
         {
-            if (SearchResultGrid.Visibility == Visibility.Visible)
-                return SearchResultGrid.SelectedItem as Product;
-            else
-                return ProductGrid.SelectedItem as Product;
+            // Prefer the one that is selected (non-null), regardless of visibility
+            if (SearchResultGrid.SelectedItem is Product searchSelected)
+                return searchSelected;
+
+            if (ProductGrid.SelectedItem is Product productSelected)
+                return productSelected;
+
+            return null; // If neither has a selection
         }
+
 
 
         private void AddStockButton_Click(object sender, RoutedEventArgs e)
@@ -295,16 +300,25 @@ namespace UIDesign
 
         private void EditProductButton_Click(object sender, RoutedEventArgs e)
         {
-            Product selectedProduct = ProductGrid.SelectedItem as Product;
+            Product selectedProduct = GetSelectedProduct();
 
             if (selectedProduct != null)
             {
                 EditProductWindow editWindow = new EditProductWindow(selectedProduct);
                 editWindow.Owner = this;
+
                 if (editWindow.ShowDialog() == true)
                 {
-                    // Access values if needed via properties or shared data
+                    // Refresh both grids to reflect changes
+                    ProductGrid.Items.Refresh();
+                    SearchResultGrid.Items.Refresh();
+
+                    // Re-display updated info
+                    ViewProductDescription(selectedProduct);
+                    ViewProductStatistics(selectedProduct);
+
                     MessageBox.Show("Product updated successfully!", "Edit Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                    ProductGrid.ScrollIntoView(selectedProduct);
                 }
             }
             else
@@ -312,6 +326,7 @@ namespace UIDesign
                 MessageBox.Show("Please select a product to edit.", "No Product Selected", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {

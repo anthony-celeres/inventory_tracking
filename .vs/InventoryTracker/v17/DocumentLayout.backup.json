@@ -80,7 +80,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -89,6 +89,30 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "UIDesign\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\InventoryTracker\\UIDesign\\MainWindow.xaml.cs",
+              "RelativeToolTip": "UIDesign\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAOMAAAAAAAAAAAAAAOUAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:24:13.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Style.cs",
+              "DocumentMoniker": "C:\\Users\\Anthony\\AppData\\Local\\Temp\\.vsdbgsrc\\195180cdea894bc34fc4e9385773e4e4b14bb04b428bfa8f53e53320b9ffe6b3\\Style.cs",
+              "ToolTip": "C:\\Users\\Anthony\\AppData\\Local\\Temp\\.vsdbgsrc\\195180cdea894bc34fc4e9385773e4e4b14bb04b428bfa8f53e53320b9ffe6b3\\Style.cs [Read Only]",
+              "ViewState": "AgIAAAIBAAAAAAAAAAAAAB4AAAAAAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T10:23:29.876Z",
+              "EditorCaption": " [Read Only]"
             },
             {
               "$type": "Document",
@@ -147,32 +171,7 @@
               "RelativeToolTip": "ClassDesign\\Product.cs",
               "ViewState": "AgIAAFgAAAAAAAAAAAAqwGYAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T00:19:12.728Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "UIDesign\\MainWindow.xaml.cs",
-              "ToolTip": "D:\\InventoryTracker\\UIDesign\\MainWindow.xaml.cs*",
-              "RelativeToolTip": "UIDesign\\MainWindow.xaml.cs*",
-              "ViewState": "AgIAAMsAAAAAAAAAAAAxwN4AAABlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T00:24:13.941Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Style.cs",
-              "DocumentMoniker": "C:\\Users\\Anthony\\AppData\\Local\\Temp\\.vsdbgsrc\\195180cdea894bc34fc4e9385773e4e4b14bb04b428bfa8f53e53320b9ffe6b3\\Style.cs",
-              "ToolTip": "C:\\Users\\Anthony\\AppData\\Local\\Temp\\.vsdbgsrc\\195180cdea894bc34fc4e9385773e4e4b14bb04b428bfa8f53e53320b9ffe6b3\\Style.cs [Read Only]",
-              "ViewState": "AgIAAAIBAAAAAAAAAAAAAB4AAAAAAAAAAQAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T10:23:29.876Z",
-              "EditorCaption": " [Read Only]"
+              "WhenOpened": "2025-05-29T00:19:12.728Z"
             },
             {
               "$type": "Document",
@@ -184,8 +183,7 @@
               "RelativeToolTip": "UIDesign\\QuantityToBrushConverter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T03:17:33.804Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T03:17:33.804Z"
             },
             {
               "$type": "Document",
