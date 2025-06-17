@@ -42,19 +42,6 @@
                        Foreground="#FAFAFA"
                        Margin="20,5,0,0"/>
             <TextBox x:Name="NameBox" Style="{StaticResource RoundedTextBox}" Margin="20,0,20,0"/>
-            <TextBlock Text="ID:"
-                       Foreground="#FAFAFA"
-                       Margin="20,5,0,0"/>
-            <TextBox x:Name="IDBox" Style="{StaticResource RoundedTextBox}" Margin="20,0,20,0"/>
-            <TextBlock Text="Quantity:"
-                       Foreground="#FAFAFA"
-                       Margin="20,5,0,0"/>
-            <TextBox x:Name="QuantityBox" Style="{StaticResource RoundedTextBox}" Margin="20,0,20,0"/>
-            <TextBlock Text="Price:"
-                       Foreground="#FAFAFA"
-                       Margin="20,5,0,0"/>
-            <TextBox x:Name="PriceBox" Style="{StaticResource RoundedTextBox}" Margin="20,0,20,0"/>
-
             <TextBlock Text="Category:"
                 Foreground="#FAFAFA"
                 Margin="20,5,0,0"/>
@@ -64,6 +51,20 @@
                 Style="{StaticResource RoundedComboBox}" 
                 Foreground="Black"
                 DisplayMemberPath="." />
+
+            <TextBlock Text="Quantity:"
+                       Foreground="#FAFAFA"
+                       Margin="20,5,0,0"/>
+            <TextBox x:Name="QuantityBox" Style="{StaticResource RoundedTextBox}" Margin="20,0,20,0"/>
+            <TextBlock Text="Price:"
+                       Foreground="#FAFAFA"
+                       Margin="20,5,0,0"/>
+            <TextBox x:Name="PriceBox" Style="{StaticResource RoundedTextBox}" Margin="20,0,20,0"/>
+
+            <TextBlock Text="ID:"
+                       Foreground="#FAFAFA"
+                       Margin="20,5,0,0"/>
+            <TextBox x:Name="IDBox" Style="{StaticResource RoundedTextBox}" Margin="20,0,20,0"/>
 
             <Button x:Name="SaveButton"
                 Content="✔️ Save Changes"

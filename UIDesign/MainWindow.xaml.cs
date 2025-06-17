@@ -25,6 +25,7 @@ namespace UIDesign
     public partial class MainWindow : Window
     {
         public ObservableCollection<Product> Products => Inventory.Products;
+        public ObservableCollection<Product> FilteredProducts { get; set; } = new ObservableCollection<Product>();
         public ObservableCollection<Product> SearchResults { get; set; } = new ObservableCollection<Product>();
 
 
@@ -44,7 +45,7 @@ namespace UIDesign
             this.DataContext = this;
 
             // Initial Product List
-            Products.Add(new Product("Potato Chips", "P001", 10, 15.00m, ProductCategory.Snacks));
+            Products.Add(new Product("Potato Chips", "P001", 10, 15, ProductCategory.Snacks));
             Products.Add(new Product("Chocolate Bar", "P002", 8, 12.50m, ProductCategory.Snacks));
             Products.Add(new Product("Crackers", "P003", 12, 10.00m, ProductCategory.Snacks));
             Products.Add(new Product("Gummy Bears", "P004", 5, 18.00m, ProductCategory.Snacks));
@@ -178,8 +179,13 @@ namespace UIDesign
 
         private void ViewProductDescription(Product p)
         {
-            ProductDescription.Text = $"Product Description\n   Name:\t {p.Name}\n   ID: \t{p.ID}\n   Stock: \t{p.Quantity}\n   Price:\t{p.Price}";
+            ProductDescription.Text = $"Product Description\n" +
+                                      $"   Name:\t {p.Name}\n" +
+                                      $"   ID:\t {p.ID}\n" +
+                                      $"   Stock:\t {p.Quantity}\n" +
+                                      $"   Price:\t ₱{p.Price.ToString("F2")}";
         }
+
 
         private void ViewProductStatistics(Product p)
         {
@@ -438,6 +444,92 @@ namespace UIDesign
             EscapeButton.Visibility = Visibility.Collapsed;
             SearchBox.Text = string.Empty;
         }
+
+        private void FilterByComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (FilterByComboBox.SelectedItem is ComboBoxItem selectedItem)
+            {
+                string selectedFilter = selectedItem.Content.ToString();
+
+                if (selectedFilter == "All")
+                {
+                    ShowAllProducts();
+                }
+                else if (selectedFilter == "Status")
+                {
+                    FilterByStatusPanel.IsOpen = true;
+                    FilterByCategoryPanel.IsOpen = false;
+                }
+                else if (selectedFilter == "Category")
+                {
+                    FilterByCategoryPanel.IsOpen = true;
+                    FilterByStatusPanel.IsOpen = false;
+                }
+            }
+        }
+
+        private void FilterStatusButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn)
+            {
+                string selectedStatus = btn.Content.ToString();
+                ApplyStatusFilter(selectedStatus);
+                FilterByStatusPanel.IsOpen = false;
+            }
+        }
+
+        private void FilterCategoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn)
+            {
+                string selectedCategory = btn.Content.ToString();
+                ApplyCategoryFilter(selectedCategory);
+                FilterByCategoryPanel.IsOpen = false;
+            }
+        }
+
+        private void ShowAllProducts_Click(object sender, RoutedEventArgs e)
+        {
+            ShowAllProducts();
+            FilterByStatusPanel.IsOpen = false;
+            FilterByCategoryPanel.IsOpen = false;
+        }
+
+
+        private void ApplyStatusFilter(string status)
+        {
+            FilteredProducts.Clear();
+            FilteredProductGrid.Visibility = Visibility.Visible;
+            ProductGrid.Visibility = Visibility.Collapsed;
+            foreach (var p in Inventory.Products)
+            {
+                if (p.Status == status)
+                    FilteredProducts.Add(p);
+            }
+        }
+
+        private void ApplyCategoryFilter(string category)
+        {
+            FilteredProducts.Clear();
+            FilteredProductGrid.Visibility = Visibility.Visible;
+            ProductGrid.Visibility = Visibility.Collapsed;
+            foreach (var p in Inventory.Products)
+            {
+                if (p.Category.ToString() == category)
+                    FilteredProducts.Add(p);
+            }
+        }
+
+        private void ShowAllProducts()
+        {
+            FilteredProducts.Clear();
+            FilterByStatusPanel.IsOpen = false;
+            FilterByCategoryPanel.IsOpen = false;
+            ProductGrid.Visibility = Visibility.Visible;
+            FilteredProductGrid.Visibility = Visibility.Collapsed;
+        }
+
+
 
     }
 }

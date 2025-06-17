@@ -38,11 +38,19 @@
                        Foreground="#FAFAFA"
                        Margin="20,5,0,0"/>
             <TextBox x:Name="NameBox" Style="{StaticResource RoundedTextBox}" Margin="20,0,20,0"/>
-            <TextBlock Text="ID:"
-                       Foreground="#FAFAFA"
-                       Margin="20,5,0,0"/>
-            <TextBox x:Name="IDBox" Style="{StaticResource RoundedTextBox}" Margin="20,0,20,0"/>
-            <TextBlock Text="Quantity:"
+
+            <!-- New Category Field -->
+            <TextBlock Text="Category:"
+           Foreground="#FAFAFA"
+           Margin="20,5,0,0"/>
+            <ComboBox x:Name="CategoryBox"
+          Margin="20,0,20,0"
+          Height="25"
+          Style="{StaticResource RoundedComboBox}" 
+          Foreground="Black"
+          DisplayMemberPath="." />
+
+            <TextBlock Text="Stock:"
                        Foreground="#FAFAFA"
                        Margin="20,5,0,0"/>
             <TextBox x:Name="QuantityBox" Style="{StaticResource RoundedTextBox}" Margin="20,0,20,0"/>
@@ -51,16 +59,10 @@
                        Margin="20,5,0,0"/>
             <TextBox x:Name="PriceBox" Style="{StaticResource RoundedTextBox}" Margin="20,0,20,0"/>
 
-            <!-- New Category Field -->
-            <TextBlock Text="Category:"
-                       Foreground="#FAFAFA"
-                       Margin="20,5,0,0"/>
-            <ComboBox x:Name="CategoryBox"
-                      Margin="20,0,20,0"
-                      Height="25"
-                      Style="{StaticResource RoundedComboBox}" 
-                      Foreground="Black"
-                      DisplayMemberPath="." />
+            <TextBlock Text="ID:"
+           Foreground="#FAFAFA"
+           Margin="20,5,0,0"/>
+            <TextBox x:Name="IDBox" Style="{StaticResource RoundedTextBox}" Margin="20,0,20,0"/>
 
             <!-- Buttons -->
             <Button x:Name="AddButton"
