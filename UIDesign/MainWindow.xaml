@@ -127,9 +127,12 @@
             <!-- Filter Type ComboBox -->
             <!-- Filter Type ComboBox -->
             <ComboBox x:Name="FilterByComboBox"
-          Margin="5,0,0,0"
-          SelectedIndex="0"
-          SelectionChanged="FilterByComboBox_SelectionChanged"
+                Margin="5,0,0,0"
+                SelectedIndex="0"
+                Height="25"
+                BorderThickness="0"
+                DropDownClosed="FilterByComboBox_DropDownClosed"
+                SelectionChanged="FilterByComboBox_SelectionChanged"
           Style="{StaticResource RoundedComboBox}">
                 <ComboBoxItem Content="Filter by" IsEnabled="False"/>
                 <ComboBoxItem Content="All"/>
@@ -139,37 +142,49 @@
 
             <!-- Popup: Status Filter -->
             <Popup x:Name="FilterByStatusPanel"
-       PlacementTarget="{Binding ElementName=FilterByComboBox}"
-       Placement="Bottom"
-       StaysOpen="False">
-                <StackPanel Background="White" Width="150" Margin="5">
-                    <Button Content="Empty Stock" Click="FilterStatusButton_Click"/>
-                    <Button Content="Low Stock" Click="FilterStatusButton_Click"/>
-                    <Button Content="Moderate Stock" Click="FilterStatusButton_Click"/>
-                    <Button Content="High Stock" Click="FilterStatusButton_Click"/>
-                </StackPanel>
+                PlacementTarget="{Binding ElementName=FilterByComboBox}"
+                Placement="Bottom"
+                StaysOpen="False"
+                PopupAnimation="Fade"
+                AllowsTransparency="True">
+                <Border Style="{StaticResource PopupContentBorderStyle}">
+                    <StackPanel Width="150">
+                        <Button Content="Empty Stock" Click="FilterStatusButton_Click" Style="{StaticResource PopupButtonStyle}"/>
+                        <Button Content="Low Stock" Click="FilterStatusButton_Click" Style="{StaticResource PopupButtonStyle}"/>
+                        <Button Content="Moderate Stock" Click="FilterStatusButton_Click" Style="{StaticResource PopupButtonStyle}"/>
+                        <Button Content="High Stock" Click="FilterStatusButton_Click" Style="{StaticResource PopupButtonStyle}"/>
+                        <Button Content="Show All" Click="ShowAllProducts_Click" Style="{StaticResource PopupButtonStyle}"/>
+                    </StackPanel>
+                </Border>
             </Popup>
+
 
             <!-- Popup: Category Filter -->
             <Popup x:Name="FilterByCategoryPanel"
-       PlacementTarget="{Binding ElementName=FilterByComboBox}"
-       Placement="Bottom"
-       StaysOpen="False">
-                <StackPanel Background="White" Width="150" Margin="5">
-                    <Button Content="Snacks" Click="FilterCategoryButton_Click"/>
-                    <Button Content="Beverages" Click="FilterCategoryButton_Click"/>
-                    <Button Content="PersonalCare" Click="FilterCategoryButton_Click"/>
-                    <Button Content="HouseholdItems" Click="FilterCategoryButton_Click"/>
-                    <Button Content="InstantMeals" Click="FilterCategoryButton_Click"/>
-                    <Button Content="OverTheCounterMedicine" Click="FilterCategoryButton_Click"/>
-                    <Button Content="Tobacco" Click="FilterCategoryButton_Click"/>
-                    <Button Content="Dairy" Click="FilterCategoryButton_Click"/>
-                    <Button Content="Stationery" Click="FilterCategoryButton_Click"/>
-                </StackPanel>
+                    PlacementTarget="{Binding ElementName=FilterByComboBox}"
+                    Placement="Bottom"
+                    StaysOpen="False"
+                    AllowsTransparency="True"
+                    PopupAnimation="Fade">
+                <Border Style="{StaticResource PopupContentBorderStyle}">
+                    <StackPanel Width="150">
+                        <Button Content="Snacks" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
+                        <Button Content="Beverages" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
+                        <Button Content="PersonalCare" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
+                        <Button Content="HouseholdItems" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
+                        <Button Content="InstantMeals" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
+                        <Button Content="OverTheCounterMedicine" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
+                        <Button Content="Tobacco" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
+                        <Button Content="Dairy" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
+                        <Button Content="Stationery" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
+                        <Button Content="Show All" Click="ShowAllProducts_Click" Style="{StaticResource PopupButtonStyle}"/>
+                    </StackPanel>
+                </Border>
             </Popup>
 
 
-            <ComboBox x:Name="SearchByComboBox" Grid.Column="1" Margin="5,0,0,0" Height="25" BorderThickness="0" SelectedIndex="0" Style="{StaticResource RoundedComboBox}" >
+
+            <ComboBox x:Name="SearchByComboBox" Grid.Column="1" Margin="5,0,0,0" BorderThickness="0" Height="25" SelectedIndex="0" Style="{StaticResource RoundedComboBox}" >
                 <ComboBoxItem Content="Search by" IsEnabled="False"/>
                 <ComboBoxItem Content="ID"/>
                 <ComboBoxItem Content="Name"/>
@@ -178,7 +193,7 @@
             </ComboBox>
 
             <TextBox x:Name="SearchBox" Grid.Column="2" Margin="5,0,0,0" Style="{StaticResource RoundedTextBox}"/>
-            <Button x:Name="SearchButton" Grid.Column="3" Content="Search" Margin="5,0,5,0" Style="{StaticResource RoundedNormalButton}" Click="SearchButton_Click"/>
+            <Button x:Name="SearchButton" Grid.Column="3" Content="Search" Margin="5,0,0,0" Style="{StaticResource RoundedNormalButton}" Click="SearchButton_Click" HorizontalAlignment="Left" Width="90"/>
 
             <Button x:Name="AddProductExpander" Content="Add New" Grid.Column="4" Click="OpenAddProductWindow_Click" Margin="0,0,5,0" Style="{StaticResource RoundedAddButton}"/>
         </Grid>

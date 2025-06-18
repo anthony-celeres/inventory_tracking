@@ -445,28 +445,53 @@ namespace UIDesign
             SearchBox.Text = string.Empty;
         }
 
+        private string lastSelectedFilter = string.Empty;
+
         private void FilterByComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (FilterByComboBox.SelectedItem is ComboBoxItem selectedItem)
             {
-                string selectedFilter = selectedItem.Content.ToString();
+                lastSelectedFilter = selectedItem.Content.ToString();
+                ApplyFilter(lastSelectedFilter);
+            }
+        }
 
-                if (selectedFilter == "All")
+        private void FilterByComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            // Reselecting same item won't trigger SelectionChanged, so handle here
+            if (FilterByComboBox.SelectedItem is ComboBoxItem selectedItem)
+            {
+                string currentFilter = selectedItem.Content.ToString();
+
+                if (currentFilter == lastSelectedFilter)
                 {
-                    ShowAllProducts();
-                }
-                else if (selectedFilter == "Status")
-                {
-                    FilterByStatusPanel.IsOpen = true;
-                    FilterByCategoryPanel.IsOpen = false;
-                }
-                else if (selectedFilter == "Category")
-                {
-                    FilterByCategoryPanel.IsOpen = true;
-                    FilterByStatusPanel.IsOpen = false;
+                    ApplyFilter(currentFilter);
                 }
             }
         }
+
+        private void ApplyFilter(string selectedFilter)
+        {
+           
+
+            switch (selectedFilter)
+            {
+                case "All":
+                    ShowAllProducts();
+                    break;
+
+                case "Status":
+                    FilterByStatusPanel.IsOpen = true;
+                    FilterByCategoryPanel.IsOpen = false;
+                    break;
+
+                case "Category":
+                    FilterByCategoryPanel.IsOpen = true;
+                    FilterByStatusPanel.IsOpen = false;
+                    break;
+            }
+        }
+
 
         private void FilterStatusButton_Click(object sender, RoutedEventArgs e)
         {
@@ -490,6 +515,7 @@ namespace UIDesign
 
         private void ShowAllProducts_Click(object sender, RoutedEventArgs e)
         {
+            FilterByComboBox.SelectedIndex = 1;
             ShowAllProducts();
             FilterByStatusPanel.IsOpen = false;
             FilterByCategoryPanel.IsOpen = false;
@@ -523,13 +549,10 @@ namespace UIDesign
         private void ShowAllProducts()
         {
             FilteredProducts.Clear();
-            FilterByStatusPanel.IsOpen = false;
-            FilterByCategoryPanel.IsOpen = false;
             ProductGrid.Visibility = Visibility.Visible;
             FilteredProductGrid.Visibility = Visibility.Collapsed;
         }
 
-
-
+        
     }
 }

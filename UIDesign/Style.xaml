@@ -41,11 +41,51 @@
         </Setter>
     </Style>
 
+    <!-- ComboBoxItem Style: No Blue Hover -->
+    <Style TargetType="ComboBoxItem">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Padding" Value="6,2"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBoxItem">
+                    <Border x:Name="Border"
+                        Background="{TemplateBinding Background}"
+                        SnapsToDevicePixels="True"
+                        CornerRadius="4"
+                        Padding="{TemplateBinding Padding}">
+                        <ContentPresenter />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsHighlighted" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="#DADADA"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="BorderBrush" Value="#1d1d1d" />
+                            <Setter Property="BorderThickness" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="White"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="#888"/>
+                            <Setter Property="Background" Value="White"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ComboBox Style: Rounded -->
     <Style x:Key="RoundedComboBox" TargetType="ComboBox">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="Background" Value="White"/>
-        <Setter Property="BorderBrush" Value="#4681A8"/>
+        <Setter Property="BorderBrush" Value="#1d1d1d"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Padding" Value="4"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -54,7 +94,6 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ComboBox">
                     <Grid>
-                        <!-- Rounded Border -->
                         <Border x:Name="MainBorder"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
@@ -62,7 +101,6 @@
                             CornerRadius="6"
                             SnapsToDevicePixels="True" />
 
-                        <!-- ContentPresenter for selected item -->
                         <ContentPresenter x:Name="ContentPresenter"
                                       Margin="6,0,30,0"
                                       HorizontalAlignment="Left"
@@ -72,7 +110,6 @@
                                       ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
                                       RecognizesAccessKey="True" />
 
-                        <!-- Drop-down button -->
                         <ToggleButton x:Name="DropDownToggle"
                                   Grid.Column="1"
                                   Focusable="False"
@@ -82,15 +119,14 @@
                                   VerticalAlignment="Stretch"
                                   Width="30"
                                   Background="Transparent"
-                                  BorderBrush="{x:Null}">
+                                  BorderBrush="Transparent">
                             <Path HorizontalAlignment="Center"
                               VerticalAlignment="Center"
                               Data="M 0 0 L 4 4 L 8 0 Z"
-                              Fill="#4681A8"
+                              Fill="Black"
                               Width="8" Height="4"/>
                         </ToggleButton>
 
-                        <!-- Popup Items -->
                         <Popup x:Name="PART_Popup"
                            Placement="Bottom"
                            IsOpen="{TemplateBinding IsDropDownOpen}"
@@ -102,7 +138,7 @@
                                 BorderThickness="1"
                                 CornerRadius="6">
                                 <ScrollViewer Margin="4">
-                                    <ItemsPresenter/>
+                                    <ItemsPresenter />
                                 </ScrollViewer>
                             </Border>
                         </Popup>
@@ -111,16 +147,16 @@
             </Setter.Value>
         </Setter>
 
-        <!-- Hover and focus effects -->
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="BorderBrush" Value="#5A9BD5"/>
+                <Setter Property="BorderBrush" Value="#BABABA"/>
             </Trigger>
             <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                <Setter Property="BorderBrush" Value="#2C6EAA"/>
+                <Setter Property="BorderBrush" Value="#BABABA"/>
             </Trigger>
         </Style.Triggers>
     </Style>
+
 
     <!-- Rounded Search Text Box Style -->
     <Style TargetType="TextBox" x:Key="SearchTextBox">
@@ -324,6 +360,58 @@
                 <Setter Property="Foreground" Value="White"/>
             </Trigger>
         </Style.Triggers>
+    </Style>
+
+    <DropShadowEffect x:Key="PopupShadowEffect"
+                      BlurRadius="10"
+                      ShadowDepth="2"
+                      Direction="270"
+                      Color="#888888"/>
+
+    <!-- Style for the content inside the Popup -->
+    <Style x:Key="PopupContentBorderStyle" TargetType="Border">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="CornerRadius" Value="6"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="BorderBrush" Value="#1d1d1d"/>
+        <Setter Property="Effect" Value="{StaticResource PopupShadowEffect}"/>
+    </Style>
+
+    <Style x:Key="PopupButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="6"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter HorizontalAlignment="Left"
+                                          Margin="5,1,0,1"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#BABABA"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="#1d1d1d"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="1"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#BABABA"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
 </ResourceDictionary>

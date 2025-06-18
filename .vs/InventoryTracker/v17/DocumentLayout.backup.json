@@ -3,12 +3,19 @@
   "WorkspaceRootPath": "D:\\InventoryTracker\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|D:\\InventoryTracker\\uidesign\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|D:\\InventoryTracker\\uidesign\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|solutionrelative:uidesign\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|D:\\InventoryTracker\\uidesign\\style.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|solutionrelative:uidesign\\style.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|d:\\inventorytracker\\uidesign\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|solutionrelative:uidesign\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|d:\\inventorytracker\\uidesign\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|solutionrelative:uidesign\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Anthony\\AppData\\Local\\Temp\\.vsdbgsrc\\195180cdea894bc34fc4e9385773e4e4b14bb04b428bfa8f53e53320b9ffe6b3\\Style.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C680D37E-AB2C-490A-B4F3-0CD591432C12}|ClassDesign\\ClassDesign.csproj|D:\\InventoryTracker\\classdesign\\productcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,10 +54,6 @@
       "RelativeMoniker": "D:0:0:{C680D37E-AB2C-490A-B4F3-0CD591432C12}|ClassDesign\\ClassDesign.csproj|solutionrelative:classdesign\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|D:\\InventoryTracker\\uidesign\\style.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|solutionrelative:uidesign\\style.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|D:\\InventoryTracker\\uidesign\\updatestockcontentconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|solutionrelative:uidesign\\updatestockcontentconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -70,9 +73,6 @@
       "RelativeMoniker": "D:0:0:{BBCE0D99-CB6C-4EFA-BD77-3ADA0D70EE6C}|UIDesign\\UIDesign.csproj|solutionrelative:uidesign\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Anthony\\AppData\\Local\\Temp\\.vsdbgsrc\\195180cdea894bc34fc4e9385773e4e4b14bb04b428bfa8f53e53320b9ffe6b3\\Style.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C680D37E-AB2C-490A-B4F3-0CD591432C12}|ClassDesign\\ClassDesign.csproj|D:\\InventoryTracker\\classdesign\\classdiagram.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|",
       "RelativeMoniker": "D:0:0:{C680D37E-AB2C-490A-B4F3-0CD591432C12}|ClassDesign\\ClassDesign.csproj|solutionrelative:classdesign\\classdiagram.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|"
     }
@@ -84,19 +84,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\MainWindow.xaml",
               "RelativeDocumentMoniker": "UIDesign\\MainWindow.xaml",
@@ -108,146 +108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "UIDesign\\MainWindow.xaml.cs",
-              "ToolTip": "D:\\InventoryTracker\\UIDesign\\MainWindow.xaml.cs",
-              "RelativeToolTip": "UIDesign\\MainWindow.xaml.cs",
-              "ViewState": "AgIAALMBAAAAAAAAAADwv78BAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T00:24:13.941Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "EditProductWindow.xaml",
-              "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\EditProductWindow.xaml",
-              "RelativeDocumentMoniker": "UIDesign\\EditProductWindow.xaml",
-              "ToolTip": "D:\\InventoryTracker\\UIDesign\\EditProductWindow.xaml",
-              "RelativeToolTip": "UIDesign\\EditProductWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-13T13:12:19.772Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\InventoryTracker\\ClassDesign\\Program.cs",
-              "RelativeDocumentMoniker": "ClassDesign\\Program.cs",
-              "ToolTip": "D:\\InventoryTracker\\ClassDesign\\Program.cs",
-              "RelativeToolTip": "ClassDesign\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T00:14:28.289Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProductCategory.cs",
-              "DocumentMoniker": "D:\\InventoryTracker\\ClassDesign\\ProductCategory.cs",
-              "RelativeDocumentMoniker": "ClassDesign\\ProductCategory.cs",
-              "ToolTip": "D:\\InventoryTracker\\ClassDesign\\ProductCategory.cs",
-              "RelativeToolTip": "ClassDesign\\ProductCategory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T04:04:34.192Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "QuantityToBrushConverter.cs",
-              "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\QuantityToBrushConverter.cs",
-              "RelativeDocumentMoniker": "UIDesign\\QuantityToBrushConverter.cs",
-              "ToolTip": "D:\\InventoryTracker\\UIDesign\\QuantityToBrushConverter.cs",
-              "RelativeToolTip": "UIDesign\\QuantityToBrushConverter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T03:17:33.804Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Product.cs",
-              "DocumentMoniker": "D:\\InventoryTracker\\ClassDesign\\Product.cs",
-              "RelativeDocumentMoniker": "ClassDesign\\Product.cs",
-              "ToolTip": "D:\\InventoryTracker\\ClassDesign\\Product.cs",
-              "RelativeToolTip": "ClassDesign\\Product.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAowHcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T00:19:12.728Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AddProductWindow.xaml",
-              "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\AddProductWindow.xaml",
-              "RelativeDocumentMoniker": "UIDesign\\AddProductWindow.xaml",
-              "ToolTip": "D:\\InventoryTracker\\UIDesign\\AddProductWindow.xaml",
-              "RelativeToolTip": "UIDesign\\AddProductWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-12T16:40:44.893Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Inventory.cs",
-              "DocumentMoniker": "D:\\InventoryTracker\\ClassDesign\\Inventory.cs",
-              "RelativeDocumentMoniker": "ClassDesign\\Inventory.cs",
-              "ToolTip": "D:\\InventoryTracker\\ClassDesign\\Inventory.cs",
-              "RelativeToolTip": "ClassDesign\\Inventory.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAYwCYAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T00:18:06.663Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EditProductWindow.xaml.cs",
-              "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\EditProductWindow.xaml.cs",
-              "RelativeDocumentMoniker": "UIDesign\\EditProductWindow.xaml.cs",
-              "ToolTip": "D:\\InventoryTracker\\UIDesign\\EditProductWindow.xaml.cs",
-              "RelativeToolTip": "UIDesign\\EditProductWindow.xaml.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAiwF0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-13T13:14:49.995Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AddProductWindow.xaml.cs",
-              "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\AddProductWindow.xaml.cs",
-              "RelativeDocumentMoniker": "UIDesign\\AddProductWindow.xaml.cs",
-              "ToolTip": "D:\\InventoryTracker\\UIDesign\\AddProductWindow.xaml.cs",
-              "RelativeToolTip": "UIDesign\\AddProductWindow.xaml.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAgwEMAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T16:41:34.717Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Style.cs",
-              "DocumentMoniker": "C:\\Users\\Anthony\\AppData\\Local\\Temp\\.vsdbgsrc\\195180cdea894bc34fc4e9385773e4e4b14bb04b428bfa8f53e53320b9ffe6b3\\Style.cs",
-              "ToolTip": "C:\\Users\\Anthony\\AppData\\Local\\Temp\\.vsdbgsrc\\195180cdea894bc34fc4e9385773e4e4b14bb04b428bfa8f53e53320b9ffe6b3\\Style.cs [Read Only]",
-              "ViewState": "AgIAAAIBAAAAAAAAAAAAAB4AAAAAAAAAAQAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T10:23:29.876Z",
-              "EditorCaption": " [Read Only]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 1,
               "Title": "Style.xaml",
               "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\Style.xaml",
               "RelativeDocumentMoniker": "UIDesign\\Style.xaml",
@@ -259,7 +120,137 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "UIDesign\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\InventoryTracker\\UIDesign\\MainWindow.xaml.cs",
+              "RelativeToolTip": "UIDesign\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAKwBAAAAAAAAAAAkwMMBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:24:13.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Style.cs",
+              "DocumentMoniker": "C:\\Users\\Anthony\\AppData\\Local\\Temp\\.vsdbgsrc\\195180cdea894bc34fc4e9385773e4e4b14bb04b428bfa8f53e53320b9ffe6b3\\Style.cs",
+              "ToolTip": "C:\\Users\\Anthony\\AppData\\Local\\Temp\\.vsdbgsrc\\195180cdea894bc34fc4e9385773e4e4b14bb04b428bfa8f53e53320b9ffe6b3\\Style.cs",
+              "ViewState": "AgIAAAIBAAAAAAAAAAAAAB4AAAAAAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T10:23:29.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EditProductWindow.xaml",
+              "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\EditProductWindow.xaml",
+              "RelativeDocumentMoniker": "UIDesign\\EditProductWindow.xaml",
+              "ToolTip": "D:\\InventoryTracker\\UIDesign\\EditProductWindow.xaml",
+              "RelativeToolTip": "UIDesign\\EditProductWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-13T13:12:19.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\InventoryTracker\\ClassDesign\\Program.cs",
+              "RelativeDocumentMoniker": "ClassDesign\\Program.cs",
+              "ToolTip": "D:\\InventoryTracker\\ClassDesign\\Program.cs",
+              "RelativeToolTip": "ClassDesign\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:14:28.289Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProductCategory.cs",
+              "DocumentMoniker": "D:\\InventoryTracker\\ClassDesign\\ProductCategory.cs",
+              "RelativeDocumentMoniker": "ClassDesign\\ProductCategory.cs",
+              "ToolTip": "D:\\InventoryTracker\\ClassDesign\\ProductCategory.cs",
+              "RelativeToolTip": "ClassDesign\\ProductCategory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T04:04:34.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "QuantityToBrushConverter.cs",
+              "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\QuantityToBrushConverter.cs",
+              "RelativeDocumentMoniker": "UIDesign\\QuantityToBrushConverter.cs",
+              "ToolTip": "D:\\InventoryTracker\\UIDesign\\QuantityToBrushConverter.cs",
+              "RelativeToolTip": "UIDesign\\QuantityToBrushConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T03:17:33.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\InventoryTracker\\ClassDesign\\Product.cs",
+              "RelativeDocumentMoniker": "ClassDesign\\Product.cs",
+              "ToolTip": "D:\\InventoryTracker\\ClassDesign\\Product.cs",
+              "RelativeToolTip": "ClassDesign\\Product.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAowHcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:19:12.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AddProductWindow.xaml",
+              "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\AddProductWindow.xaml",
+              "RelativeDocumentMoniker": "UIDesign\\AddProductWindow.xaml",
+              "ToolTip": "D:\\InventoryTracker\\UIDesign\\AddProductWindow.xaml",
+              "RelativeToolTip": "UIDesign\\AddProductWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-12T16:40:44.893Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 12,
+              "Title": "Inventory.cs",
+              "DocumentMoniker": "D:\\InventoryTracker\\ClassDesign\\Inventory.cs",
+              "RelativeDocumentMoniker": "ClassDesign\\Inventory.cs",
+              "ToolTip": "D:\\InventoryTracker\\ClassDesign\\Inventory.cs",
+              "RelativeToolTip": "ClassDesign\\Inventory.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwCYAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:18:06.663Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EditProductWindow.xaml.cs",
+              "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\EditProductWindow.xaml.cs",
+              "RelativeDocumentMoniker": "UIDesign\\EditProductWindow.xaml.cs",
+              "ToolTip": "D:\\InventoryTracker\\UIDesign\\EditProductWindow.xaml.cs",
+              "RelativeToolTip": "UIDesign\\EditProductWindow.xaml.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAiwF0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-13T13:14:49.995Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AddProductWindow.xaml.cs",
+              "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\AddProductWindow.xaml.cs",
+              "RelativeDocumentMoniker": "UIDesign\\AddProductWindow.xaml.cs",
+              "ToolTip": "D:\\InventoryTracker\\UIDesign\\AddProductWindow.xaml.cs",
+              "RelativeToolTip": "UIDesign\\AddProductWindow.xaml.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAgwEMAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T16:41:34.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "UpdateStockContentConverter.cs",
               "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\UpdateStockContentConverter.cs",
               "RelativeDocumentMoniker": "UIDesign\\UpdateStockContentConverter.cs",
@@ -271,7 +262,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "App.xaml",
               "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\App.xaml",
               "RelativeDocumentMoniker": "UIDesign\\App.xaml",
@@ -283,7 +274,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "InvalidProductException.cs",
               "DocumentMoniker": "D:\\InventoryTracker\\ClassDesign\\InvalidProductException.cs",
               "RelativeDocumentMoniker": "ClassDesign\\InvalidProductException.cs",
@@ -295,7 +286,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "ClassDesign",
               "DocumentMoniker": "D:\\InventoryTracker\\ClassDesign\\ClassDesign.csproj",
               "RelativeDocumentMoniker": "ClassDesign\\ClassDesign.csproj",
@@ -306,7 +297,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "D:\\InventoryTracker\\UIDesign\\App.xaml.cs",
               "RelativeDocumentMoniker": "UIDesign\\App.xaml.cs",
