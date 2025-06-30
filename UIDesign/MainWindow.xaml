@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIDesign"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="700" Background="#1d1d1d">
+        Title="MainWindow" Height="600" Width="700" Background="#1d1d1d">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="75"/>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="35"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -22,7 +24,7 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="ViewProductGrid" Grid.Row="1" Margin="0,10,0,10" Visibility="Collapsed">
+        <Grid x:Name="ViewProductGrid" Grid.Row="1" Margin="0,10,0,20" Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -112,7 +114,8 @@
            FontFamily="Calibri"
            FontSize="24"
            FontWeight="Bold"
-           Foreground="#4681a8"/>
+           Margin="0,0,0,20"
+           Foreground="DodgerBlue"/>
 
         <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,0">
             <Grid.ColumnDefinitions>
@@ -123,66 +126,7 @@
                 <ColumnDefinition Width="150" />
             </Grid.ColumnDefinitions>
 
-
-            <!-- Filter Type ComboBox -->
-            <!-- Filter Type ComboBox -->
-            <ComboBox x:Name="FilterByComboBox"
-                Margin="5,0,0,0"
-                SelectedIndex="0"
-                Height="25"
-                BorderThickness="0"
-                DropDownClosed="FilterByComboBox_DropDownClosed"
-                SelectionChanged="FilterByComboBox_SelectionChanged"
-          Style="{StaticResource RoundedComboBox}">
-                <ComboBoxItem Content="Filter by" IsEnabled="False"/>
-                <ComboBoxItem Content="All"/>
-                <ComboBoxItem Content="Status"/>
-                <ComboBoxItem Content="Category"/>
-            </ComboBox>
-
-            <!-- Popup: Status Filter -->
-            <Popup x:Name="FilterByStatusPanel"
-                PlacementTarget="{Binding ElementName=FilterByComboBox}"
-                Placement="Bottom"
-                StaysOpen="False"
-                PopupAnimation="Fade"
-                AllowsTransparency="True">
-                <Border Style="{StaticResource PopupContentBorderStyle}">
-                    <StackPanel Width="150">
-                        <Button Content="Empty Stock" Click="FilterStatusButton_Click" Style="{StaticResource PopupButtonStyle}"/>
-                        <Button Content="Low Stock" Click="FilterStatusButton_Click" Style="{StaticResource PopupButtonStyle}"/>
-                        <Button Content="Moderate Stock" Click="FilterStatusButton_Click" Style="{StaticResource PopupButtonStyle}"/>
-                        <Button Content="High Stock" Click="FilterStatusButton_Click" Style="{StaticResource PopupButtonStyle}"/>
-                        <Button Content="Show All" Click="ShowAllProducts_Click" Style="{StaticResource PopupButtonStyle}"/>
-                    </StackPanel>
-                </Border>
-            </Popup>
-
-
-            <!-- Popup: Category Filter -->
-            <Popup x:Name="FilterByCategoryPanel"
-                    PlacementTarget="{Binding ElementName=FilterByComboBox}"
-                    Placement="Bottom"
-                    StaysOpen="False"
-                    AllowsTransparency="True"
-                    PopupAnimation="Fade">
-                <Border Style="{StaticResource PopupContentBorderStyle}">
-                    <StackPanel Width="150">
-                        <Button Content="Snacks" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
-                        <Button Content="Beverages" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
-                        <Button Content="PersonalCare" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
-                        <Button Content="HouseholdItems" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
-                        <Button Content="InstantMeals" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
-                        <Button Content="OverTheCounterMedicine" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
-                        <Button Content="Tobacco" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
-                        <Button Content="Dairy" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
-                        <Button Content="Stationery" Click="FilterCategoryButton_Click" Style="{StaticResource PopupButtonStyle}"/>
-                        <Button Content="Show All" Click="ShowAllProducts_Click" Style="{StaticResource PopupButtonStyle}"/>
-                    </StackPanel>
-                </Border>
-            </Popup>
-
-
+            <ToggleButton x:Name="FilterButton" Content="Filter  📂" Style="{StaticResource RoundedFilterButton}" Grid.Row="0" Margin="5,0,0,0" Height="25" Click="FilterButton_Click"/>
 
             <ComboBox x:Name="SearchByComboBox" Grid.Column="1" Margin="5,0,0,0" BorderThickness="0" Height="25" SelectedIndex="0" Style="{StaticResource RoundedComboBox}" >
                 <ComboBoxItem Content="Search by" IsEnabled="False"/>
@@ -198,12 +142,121 @@
             <Button x:Name="AddProductExpander" Content="Add New" Grid.Column="4" Click="OpenAddProductWindow_Click" Margin="0,0,5,0" Style="{StaticResource RoundedAddButton}"/>
         </Grid>
 
+        <Grid x:Name="FilterChoicesGrid" Grid.Row="3" Visibility="Collapsed" Margin="0,10,0,0" Height="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="98" />
+                <ColumnDefinition Width="95" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ToggleButton x:Name="StatusToggleButton" Content="Status" Grid.Column="0" Style="{StaticResource FilterChoicesButton}" Height="40" Margin="5,0,0,0" Click="StatusToggleButton_Click"/>
+            <ToggleButton x:Name="CategoryToggleButton" Content="Category" Grid.Column="1" Style="{StaticResource FilterChoicesButton}" Height="40" Margin="-1,0,2,0" Click="CategoryToggleButton_Click"/>
+
+        </Grid>
+
+        <Grid x:Name="StatusFilterGrid" Grid.Row="4" Visibility="Collapsed" Margin="0,-10,0,0" Height="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border Background="#1d1d1d" Margin="5,0,5,0" Grid.ColumnSpan="4" CornerRadius="5" BorderBrush="White" BorderThickness="1"/>
+            <Button x:Name="EmptyStock"
+                Content="Empty Stock"
+                Grid.Column="0"
+                Height="25"
+                Style="{StaticResource StatusChoicesButton}"
+                Foreground="#1d1d1d"
+                Background="Tomato"
+                BorderBrush="#B22222"
+                BorderThickness="1"
+                Margin="15,0,0,0" />
+
+            <Button x:Name="LowStock"
+                Content="Low Stock"
+                Grid.Column="1"
+                Height="25"
+                Style="{StaticResource StatusChoicesButton}"
+                Foreground="#1d1d1d"
+                Background="Orange"
+                BorderBrush="#CC8400"  
+                BorderThickness="1"
+                Margin="5,0,0,0" />
+
+            <Button x:Name="ModerateStock"
+                Content="Moderate Stock"
+                Grid.Column="2"
+                Height="25"
+                Style="{StaticResource StatusChoicesButton}"
+                Foreground="#1d1d1d"
+                Background="LimeGreen"
+                BorderBrush="#2E8B57"  
+                BorderThickness="1"
+                Margin="5,0,0,0" />
+
+            <Button x:Name="HighStock"
+                Content="High Stock"
+                Grid.Column="3"
+                Height="25"
+                Style="{StaticResource StatusChoicesButton}"
+                Foreground="#1d1d1d"
+                Background="DodgerBlue"
+                BorderBrush="#1E5A99"  
+                BorderThickness="1"
+                Margin="5,0,15,0" />
+        </Grid>
+
+        <Grid x:Name="CategoryFilterGrid" Grid.Row="4" Visibility="Collapsed" Margin="0,-10,0,0" Height="70">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- Background Border -->
+            <Border Background="#1d1d1d" Margin="5,0,5,0" Grid.ColumnSpan="5" Grid.RowSpan="2"
+            CornerRadius="5" BorderBrush="White" BorderThickness="1" />
+
+            <!-- Row 0 -->
+            <Button x:Name="Snacks" Content="Snacks" Grid.Row="0" Grid.Column="0" Height="25" Margin="15,5,0,0"
+            Style="{StaticResource CategoryChoicesButton}" />
+            <Button x:Name="Beverages" Content="Beverages" Grid.Row="0" Grid.Column="1" Height="25" Margin="5,5,0,0"
+            Style="{StaticResource CategoryChoicesButton}" />
+            <Button x:Name="PersonalCare" Content="Personal Care" Grid.Row="0" Grid.Column="2" Height="25" Margin="5,5,0,0"
+            Style="{StaticResource CategoryChoicesButton}" />
+            <Button x:Name="PackagedGoods" Content="Packaged Goods" Grid.Row="0" Grid.Column="3" Height="25" Margin="5,5,0,0"
+            Style="{StaticResource CategoryChoicesButton}" />
+            <Button x:Name="HouseholdItems" Content="Household Items" Grid.Row="0" Grid.Column="4" Height="25" Margin="5,5,15,0"
+            Style="{StaticResource CategoryChoicesButton}" />
+
+            <!-- Row 1 -->
+            <Button x:Name="InstantMeals" Content="Instant Meals" Grid.Row="1" Grid.Column="0" Height="25" Margin="15,-5,0,0"
+            Style="{StaticResource CategoryChoicesButton}" />
+            <Button x:Name="OverTheCounterMedicine" Content="OTC Medicine" Grid.Row="1" Grid.Column="1" Height="25" Margin="5,-5,0,0"
+            Style="{StaticResource CategoryChoicesButton}" />
+            <Button x:Name="Tobacco" Content="Tobacco" Grid.Row="1" Grid.Column="2" Height="25" Margin="5,-5,0,0"
+            Style="{StaticResource CategoryChoicesButton}" />
+            <Button x:Name="Dairy" Content="Dairy" Grid.Row="1" Grid.Column="3" Height="25" Margin="5,-5,0,0"
+            Style="{StaticResource CategoryChoicesButton}" />
+            <Button x:Name="Stationery" Content="Stationery" Grid.Row="1" Grid.Column="4" Height="25" Margin="5,-5,15,0"
+            Style="{StaticResource CategoryChoicesButton}" />
+        </Grid>
+
+
         <Button x:Name="EscapeButton"
             Content="❌"
             HorizontalAlignment="Right"
             Width="20"
             Height="20"
-            Grid.Row="3"
+            Grid.Row="5"
             Margin="0,5,5,0"
             Style="{StaticResource RoundedEscapeButton}"
             Visibility="Collapsed"
@@ -214,18 +267,18 @@
            FontWeight="Bold"
            FontSize="14"
            Foreground="White"
-           Margin="5,5,487,5"
+           Margin="5,20,487,5"
            Visibility="Collapsed"
-           Grid.Row="3"/>
+           Grid.Row="5"/>
 
         <TextBlock x:Name="NoResultsText"
            Text="No results found."
            FontSize="13"
            Foreground="Gray"
            HorizontalAlignment="Center"
-           Margin="5"
+           Margin="5,20,5,5"
            Visibility="Collapsed"
-           Grid.Row="3"/>
+           Grid.Row="5"/>
 
         <DataGrid x:Name="SearchResultGrid"
           AutoGenerateColumns="False"
@@ -234,8 +287,8 @@
           CanUserDeleteRows="False"
           CanUserResizeRows="False"
           IsReadOnly="True"
-          Margin="5"
-          Grid.Row="4"  
+          Margin="5,5,5,10"
+          Grid.Row="6"  
           Grid.ColumnSpan="1"
           Visibility="Collapsed"
           ItemsSource="{Binding SearchResults}"
@@ -259,9 +312,9 @@
             FontWeight="Bold"
             FontSize="14"
             Foreground="White"
-            Margin="5"
+            Margin="5,20,5,5"
             Visibility="Visible"
-            Grid.Row="5"/>
+            Grid.Row="7"/>
 
         <DataGrid x:Name="ProductGrid"
                   AutoGenerateColumns="False"
@@ -273,7 +326,7 @@
                   CanUserResizeRows="False"
                   IsReadOnly="True"
                   Margin="5"
-                  Grid.Row="6"
+                  Grid.Row="8"
                   Grid.ColumnSpan="1"
                   MouseLeftButtonUp="ProductGrid_MouseLeftButtonUp"
                   Visibility="Visible">
@@ -305,7 +358,7 @@
                   CanUserResizeRows="False"
                   IsReadOnly="True"
                   Margin="5"
-                  Grid.Row="6"
+                  Grid.Row="8"
                   Grid.ColumnSpan="1"
                   MouseLeftButtonUp="ProductGrid_MouseLeftButtonUp"
                   Visibility="Collapsed">

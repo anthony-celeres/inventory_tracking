@@ -45,7 +45,7 @@ namespace UIDesign
             this.DataContext = this;
 
             // Initial Product List
-            Products.Add(new Product("Potato Chips", "P001", 10, 15, ProductCategory.Snacks));
+            Products.Add(new Product("Potato Chips", "P001", 0, 15, ProductCategory.Snacks));
             Products.Add(new Product("Chocolate Bar", "P002", 8, 12.50m, ProductCategory.Snacks));
             Products.Add(new Product("Crackers", "P003", 12, 10.00m, ProductCategory.Snacks));
             Products.Add(new Product("Gummy Bears", "P004", 5, 18.00m, ProductCategory.Snacks));
@@ -445,114 +445,48 @@ namespace UIDesign
             SearchBox.Text = string.Empty;
         }
 
-        private string lastSelectedFilter = string.Empty;
-
-        private void FilterByComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void FilterButton_Click(object sender, RoutedEventArgs e)
         {
-            if (FilterByComboBox.SelectedItem is ComboBoxItem selectedItem)
+            bool isVisible = FilterChoicesGrid.Visibility == Visibility.Visible
+                          || StatusFilterGrid.Visibility == Visibility.Visible;
+
+            if (isVisible)
             {
-                lastSelectedFilter = selectedItem.Content.ToString();
-                ApplyFilter(lastSelectedFilter);
+                FilterChoicesGrid.Visibility = Visibility.Collapsed;
+                StatusFilterGrid.Visibility = Visibility.Collapsed;
+                CategoryFilterGrid.Visibility = Visibility.Collapsed;
+
+                StatusToggleButton.IsChecked = false;
+                CategoryToggleButton.IsChecked = false;
+
+                FilterButton.IsChecked = false; 
             }
-        }
-
-        private void FilterByComboBox_DropDownClosed(object sender, EventArgs e)
-        {
-            // Reselecting same item won't trigger SelectionChanged, so handle here
-            if (FilterByComboBox.SelectedItem is ComboBoxItem selectedItem)
+            else
             {
-                string currentFilter = selectedItem.Content.ToString();
+                FilterChoicesGrid.Visibility = Visibility.Visible;
+                CategoryFilterGrid.Visibility = Visibility.Visible;
+                StatusFilterGrid.Visibility = Visibility.Collapsed;
+                CategoryToggleButton.IsChecked = true;
 
-                if (currentFilter == lastSelectedFilter)
-                {
-                    ApplyFilter(currentFilter);
-                }
-            }
-        }
-
-        private void ApplyFilter(string selectedFilter)
-        {
-           
-
-            switch (selectedFilter)
-            {
-                case "All":
-                    ShowAllProducts();
-                    break;
-
-                case "Status":
-                    FilterByStatusPanel.IsOpen = true;
-                    FilterByCategoryPanel.IsOpen = false;
-                    break;
-
-                case "Category":
-                    FilterByCategoryPanel.IsOpen = true;
-                    FilterByStatusPanel.IsOpen = false;
-                    break;
+                FilterButton.IsChecked = true;
             }
         }
 
 
-        private void FilterStatusButton_Click(object sender, RoutedEventArgs e)
+        private void StatusToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button btn)
-            {
-                string selectedStatus = btn.Content.ToString();
-                ApplyStatusFilter(selectedStatus);
-                FilterByStatusPanel.IsOpen = false;
-            }
+            StatusFilterGrid.Visibility = Visibility.Visible;
+            CategoryFilterGrid.Visibility = Visibility.Collapsed;
+            StatusToggleButton.IsChecked = true;
+            CategoryToggleButton.IsChecked = false;
         }
 
-        private void FilterCategoryButton_Click(object sender, RoutedEventArgs e)
+        private void CategoryToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button btn)
-            {
-                string selectedCategory = btn.Content.ToString();
-                ApplyCategoryFilter(selectedCategory);
-                FilterByCategoryPanel.IsOpen = false;
-            }
+            CategoryFilterGrid.Visibility = Visibility.Visible;
+            StatusFilterGrid.Visibility = Visibility.Collapsed;
+            CategoryToggleButton.IsChecked = true;
+            StatusToggleButton.IsChecked = false;
         }
-
-        private void ShowAllProducts_Click(object sender, RoutedEventArgs e)
-        {
-            FilterByComboBox.SelectedIndex = 1;
-            ShowAllProducts();
-            FilterByStatusPanel.IsOpen = false;
-            FilterByCategoryPanel.IsOpen = false;
-        }
-
-
-        private void ApplyStatusFilter(string status)
-        {
-            FilteredProducts.Clear();
-            FilteredProductGrid.Visibility = Visibility.Visible;
-            ProductGrid.Visibility = Visibility.Collapsed;
-            foreach (var p in Inventory.Products)
-            {
-                if (p.Status == status)
-                    FilteredProducts.Add(p);
-            }
-        }
-
-        private void ApplyCategoryFilter(string category)
-        {
-            FilteredProducts.Clear();
-            FilteredProductGrid.Visibility = Visibility.Visible;
-            ProductGrid.Visibility = Visibility.Collapsed;
-            foreach (var p in Inventory.Products)
-            {
-                if (p.Category.ToString() == category)
-                    FilteredProducts.Add(p);
-            }
-        }
-
-        private void ShowAllProducts()
-        {
-            FilteredProducts.Clear();
-            ProductGrid.Visibility = Visibility.Visible;
-            FilteredProductGrid.Visibility = Visibility.Collapsed;
-        }
-
-        
     }
 }

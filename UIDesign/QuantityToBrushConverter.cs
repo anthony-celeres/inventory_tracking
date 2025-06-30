@@ -15,12 +15,14 @@ namespace UIDesign
         {
             if (value is int quantity)
             {
-                if (quantity <= 5)
+                if (quantity == 0)
                     return Brushes.Tomato;
+                else if (quantity <= 5)
+                    return Brushes.Orange;
                 else if (quantity <= 15)
-                    return Brushes.Yellow;
+                    return Brushes.LimeGreen;
                 else
-                    return Brushes.LightGreen;
+                    return Brushes.DodgerBlue;
             }
 
             return Brushes.Transparent;
